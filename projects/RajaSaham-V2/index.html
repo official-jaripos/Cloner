@@ -1609,6 +1609,99 @@ section {
   width: fit-content;
 }
 
+/* Step list and badges in Cara Menggunakan */
+.step-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--t2);
+}
+
+.step-sub-item .s-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.step-sub-item .s-icon.check {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.step-sub-item .s-icon.cross {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.step-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+.step-chip.open {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.step-chip.win {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.step-chip.loss {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.step-highlight-box {
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-left: 3px solid var(--cyan-b);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--t1);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.step-highlight-box.golden {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-left: 3px solid #f59e0b;
+  color: #fcd34d;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 /* ─────────────────────────────────────────────────────────────
    BONUS JIKA DAFTAR HARI INI
 ───────────────────────────────────────────────────────────── */
@@ -2285,6 +2378,21 @@ footer p {
   }
 
   /* 2. Tombol CTA Hero - Natural Contained Width (Tidak Full Edge-to-Edge) */
+  
+  /* Hero Eyebrow Badge - Single Line Compact on Mobile */
+  .hero-badge {
+    font-size: clamp(8.5px, 2.4vw, 10.5px) !important;
+    letter-spacing: 0.04em !important;
+    padding: 5px 10px !important;
+    white-space: nowrap !important;
+    max-width: 98% !important;
+    margin-bottom: 18px !important;
+    box-sizing: border-box !important;
+  }
+  .hero-badge-dot {
+    flex-shrink: 0 !important;
+  }
+
   .hero .btn-row {
     flex-direction: column;
     align-items: center;
@@ -2343,16 +2451,22 @@ footer p {
     z-index: 20 !important;
   }
 
-  .pricing-card .btn {
+  .pricing-card .btn,
+  .final .btn {
     white-space: normal !important;
     word-break: normal !important;
-    padding: 14px 16px !important;
+    padding: 13px 22px !important;
     font-size: 14px !important;
     line-height: 1.35 !important;
     text-align: center !important;
     box-sizing: border-box !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: auto !important;
+    max-width: 92% !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    border-radius: var(--r) !important;
   }
 
   .pricing-features li {
@@ -2645,6 +2759,66 @@ footer p {
   }
 }
 
+
+/* ─────────────────────────────────────────────────────────────
+   CTA SUBNOTE BOX RESPONSIVE STYLING
+───────────────────────────────────────────────────────────── */
+.cta-subnote-box {
+  margin-top: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-subnote-text {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.cta-subnote-pill {
+  font-size: 13.5px;
+  color: #ffffff;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 6px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .cta-subnote-box {
+    margin-top: 10px !important;
+    margin-bottom: 18px !important;
+    gap: 6px !important;
+    padding: 0 8px !important;
+  }
+
+  .cta-subnote-text {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    padding: 0 8px !important;
+  }
+
+  .cta-subnote-pill {
+    font-size: 11px !important;
+    padding: 5px 12px !important;
+    border-radius: 999px !important;
+    line-height: 1.35 !important;
+    max-width: 92% !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2652,14 +2826,14 @@ footer p {
   <!-- ===================== ANNOUNCEMENT TOPBAR ===================== -->
   <div class="topbar">
     <div class="topbar-track">
-      <div class="topbar-item"><span class="tbdot"></span> SISTEM AI AKTIF: MEMINDAI 800+ SAHAM BEI SECARA REAL-TIME</div>
-      <div class="topbar-item"><span class="tbdot"></span> FILTER ANTI-GORENGAN V3.2 RUNNING</div>
-      <div class="topbar-item"><span class="tbdot"></span> REKOMENDASI HARI INI TERSEDIA DI DASHBOARD & DISCORD VIP</div>
-      <div class="topbar-item"><span class="tbdot"></span> PROMO SPESIAL PAKET KUARTAL (3 BULAN) SEDANG BERLANGSUNG</div>
-      <div class="topbar-item"><span class="tbdot"></span> SISTEM AI AKTIF: MEMINDAI 800+ SAHAM BEI SECARA REAL-TIME</div>
-      <div class="topbar-item"><span class="tbdot"></span> FILTER ANTI-GORENGAN V3.2 RUNNING</div>
-      <div class="topbar-item"><span class="tbdot"></span> REKOMENDASI HARI INI TERSEDIA DI DASHBOARD & DISCORD VIP</div>
-      <div class="topbar-item"><span class="tbdot"></span> PROMO SPESIAL PAKET KUARTAL (3 BULAN) SEDANG BERLANGSUNG</div>
+      <div class="topbar-item"><span class="tbdot"></span> RAJA SAHAM AI SCREENING 900+ SAHAM BEI</div>
+      <div class="topbar-item"><span class="tbdot"></span> IHSG OUTLOOK TERSEDIA SEBELUM MARKET BUKA</div>
+      <div class="topbar-item"><span class="tbdot"></span> STOCKPICK HARIAN TERSEDIA UNTUK MEMBER</div>
+      <div class="topbar-item"><span class="tbdot"></span> LIFETIME ACCESS</div>
+      <div class="topbar-item"><span class="tbdot"></span> RAJA SAHAM AI SCREENING 900+ SAHAM BEI</div>
+      <div class="topbar-item"><span class="tbdot"></span> IHSG OUTLOOK TERSEDIA SEBELUM MARKET BUKA</div>
+      <div class="topbar-item"><span class="tbdot"></span> STOCKPICK HARIAN TERSEDIA UNTUK MEMBER</div>
+      <div class="topbar-item"><span class="tbdot"></span> LIFETIME ACCESS</div>
     </div>
   </div>
 
@@ -2673,29 +2847,37 @@ footer p {
     <div class="hero-inner">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        <span>AI STOCKPICK #1 UNTUK SAHAM INDONESIA</span>
+        <span>AI TRADING ASSISTANT UNTUK TRADER SAHAM INDONESIA</span>
       </div>
 
       <h1>
-        Saat IHSG Bergejolak & Trader Panik Cutloss,<br>
-        Pengguna <span class="ac">Raja Saham AI</span> Tetap Mendapat <span class="ac">Sinyal Terkurasi</span>.
+        Cuan Jutaan Hingga Puluhan Juta dari Saham<br>
+        Tanpa Ribet <span class="ac">Screening & Analisa Manual</span>
       </h1>
 
       <p class="hero-lead">
-        Bukan tebakan admin, bukan rekomendasi pom-pom. Raja Saham AI memindai seluruh emiten BEI setiap hari, menganalisa 7 indikator teknikal multi-timeframe, dan memberikan <strong>Entry, TP, serta SL exact dalam Rupiah</strong> langsung ke genggaman Anda.
+        Raja Saham AI membantu Anda <strong>tahu kondisi IHSG</strong>, <strong>saham mana yang layak dipantau</strong>, dan lebih cepat menangkap <strong>peluang pergerakan jangka pendek</strong> tanpa screening manual berjam-jam.
       </p>
 
-      <div class="btn-row">
+      <div class="btn-row" style="margin-bottom: 12px; margin-top: 18px;">
         <a href="#pricing" class="btn btn-cyan btn-lg pulse-button">
-          <span>Ambil Paket Kuartal 3 Bulan (Hemat)</span>
+          <span>DAPATKAN LIFETIME ACCESS</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#cara-kerja" class="btn btn-outline btn-lg">
-          <span>Pelajari Alur AI ↓</span>
         </a>
       </div>
 
-      <!-- Hero Visual: Mockup Image (Dapat diganti dengan mudah melalui assets/hero-terminal.png) -->
+            <!-- Subnote di Bawah Button CTA Hero -->
+      <div class="hero-cta-subnote" style="margin-top: 0px; margin-bottom: 36px; display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; font-size: 13.5px;">
+        <div style="display: flex; align-items: center; gap: 8px; color: #e2e8f0;">
+          <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); border: 1.2px solid #22c55e; color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; flex-shrink: 0;">✓</span>
+          <strong style="color: #22c55e; font-weight: 700;">Lifetime Access</strong> — Rp 349rb, bayar sekali saja
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          Bukan langganan, tidak ada auto-charge
+        </div>
+      </div>
+
       <div class="hero-visual-wrap">
         <div class="hero-image-box">
           <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDQzMSIgd2lkdGg9IjEwMjQiIGhlaWdodD0iNDMxIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmdfMTAyNF80MzFfMmR5czgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzEwMjRfNDMxXzJkeXM4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93XzEwMjRfNDMxXzJkeXM4IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzOGJkZjgiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAyODRjNyIgc3RvcC1vcGFjaXR5PSIwLjIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgoKICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZ18xMDI0XzQzMV8yZHlzOCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfMTAyNF80MzFfMmR5czgpIi8+CgogIDwhLS0gQm9yZGVyIEZyYW1lIC0tPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIxMDIwIiBoZWlnaHQ9IjQyNyIgcng9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjI4KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iMTAxMiIgaGVpZ2h0PSI0MTkiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzEwMjRfNDMxXzJkeXM4KSIvPgoKICA8IS0tIENlbnRlciBDb250ZW50IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMiwgMjE1LjUpIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkhFUk8gREFTSEJPQVJEPC90ZXh0PgoKICAgIDwhLS0gTWFpbiBUaXRsZSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQuNSIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSI+QUkgUVVBTlRJVEFUSVZFIFRFUk1JTkFMPC90ZXh0PgoKICAgIDwhLS0gRGltZW5zaW9ucyAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0iJ0pldEJyYWlucyBNb25vJywgJ0ZpcmEgQ29kZScsIG1vbm9zcGFjZSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjEiPlsgMTAyNCDDlyA0MzEgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgZ2FtYmFyIG1vY2t1cCB0ZXJtaW5hbCBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Hero Terminal Mockup Placeholder" class="hero-mockup-img" width="1024" height="431">
@@ -2705,20 +2887,20 @@ footer p {
       <!-- Gambar 1: Stats Bar (Di Bawah Image Hero) -->
       <div class="hero-meta">
         <div class="hm-item">
-          <div class="hm-val">800+</div>
-          <div class="hm-key">Emiten BEI Dipindai</div>
+          <div class="hm-val">900+</div>
+          <div class="hm-key">Saham BEI Dipindai</div>
         </div>
         <div class="hm-item">
-          <div class="hm-val text-gradient">3-5</div>
-          <div class="hm-key">Sinyal Pilihan / Hari</div>
+          <div class="hm-val text-gradient">DAILY</div>
+          <div class="hm-key">Stockpick Terkurasi</div>
         </div>
         <div class="hm-item">
-          <div class="hm-val">10 Min</div>
-          <div class="hm-key">Auto-Audit Bot</div>
+          <div class="hm-val">1–2%</div>
+          <div class="hm-key">Orientasi Pergerakan Pendek</div>
         </div>
         <div class="hm-item">
-          <div class="hm-val text-gradient-green">0%</div>
-          <div class="hm-key">Saham Gorengan</div>
+          <div class="hm-val text-gradient-green">LIFETIME</div>
+          <div class="hm-key">Sekali Bayar, Akses Selamanya*</div>
         </div>
       </div>
 
@@ -2768,10 +2950,8 @@ footer p {
             </div>
           </div>
         </div>
-      </div>
-
-    </div>
-  </section>
+      
+      </div></div></section>
 
   <div class="glow-line"></div>
 
@@ -2780,33 +2960,32 @@ footer p {
     <div class="wrap">
       <div class="sec-center">
         <span class="eyebrow">MASALAH TRADER INDONESIA</span>
-        <h2 class="sh">Kenapa 90% Trader Ritel di Indonesia <span class="ac">Kehilangan Modal</span>?</h2>
-        <p class="sh-sub">Bursa saham bukan tempat untuk tebak-tebakan atau mengikuti rumor influencer di media sosial.</p>
+        <h2 class="sh">Kenapa Banyak Trader Saham Indonesia <span class="ac">Masih Rugi</span>?</h2>
       </div>
 
       <div class="pain-grid">
         <div class="pain-card">
           <div class="pain-icon-wrap">⚠️</div>
-          <h3 class="pain-title">800+ Saham di BEI, Anda Cuma Sempat Pantau 10</h3>
-          <p class="pain-desc">Peluang multibagger sering terlewat karena keterbatasan waktu riset. Saat Anda sadar saham naik, harganya sudah di pucuk.</p>
+          <h3 class="pain-title">Bingung Hari Ini Harus Pantau Saham Apa</h3>
+          <p class="pain-desc">Ratusan Saham Bergerak, Tapi Nggak Mungkin Semuanya Dipantau. Setiap hari ada banyak saham yang mulai aktif, naik volume, atau membentuk momentum. Masalahnya, trader cuma punya waktu untuk melihat sebagian kecil. Akibatnya, peluang sering baru kelihatan setelah harganya sudah jalan.</p>
         </div>
 
         <div class="pain-card">
           <div class="pain-icon-wrap">💣</div>
-          <h3 class="pain-title">Jebakan Saham Gorengan & Pom-Pom</h3>
-          <p class="pain-desc">Volume semu dan bid-offer tipis sengaja dibuat untuk menjebak ritel. Sekali masuk, sulit keluar dan modal langsung tergerus 30-50%.</p>
+          <h3 class="pain-title">FOMO Masuk Setelah Harga Sudah Naik</h3>
+          <p class="pain-desc">Saham Baru Kelihatan Menarik Justru Setelah Semua Orang Mulai Ngomongin. Running trade hijau, grup mulai ramai, harga naik beberapa persen. Rasanya takut ketinggalan. Tapi makin terlambat masuk, makin besar risiko beli saat momentum mulai habis. Pola seperti ini sering dibahas trader lokal saat cerita soal saham gorengan dan pump-and-dump.</p>
         </div>
 
         <div class="pain-card">
           <div class="pain-icon-wrap">📉</div>
-          <h3 class="pain-title">FOMO Beli di ARA, Nyangkut Berminggu-minggu</h3>
-          <p class="pain-desc">Membeli hanya karena melihat running trade hijau tanpa titik Stop Loss dan Target Profit yang jelas. Hasilnya: modal terkunci tanpa arah.</p>
+          <h3 class="pain-title">Susah Bedain Momentum Asli dan Saham Gorengan</h3>
+          <p class="pain-desc">Kelihatan Aktif Belum Tentu Layak Dikejar. Volume tiba-tiba besar dan harga bergerak cepat bisa terlihat menarik, tapi saham berlikuiditas rendah atau “kering” juga bisa bergerak ekstrem. Buat trader retail, bedain mana momentum yang sehat dan mana yang rawan digoreng bukan hal sederhana.</p>
         </div>
 
         <div class="pain-card">
           <div class="pain-icon-wrap">💸</div>
-          <h3 class="pain-title">Grup Sinyal Mahal Tanpa Logika & Transparansi</h3>
-          <p class="pain-desc">Banyak channel VIP berbayar jutaan rupiah yang rekomendasinya berdasarkan "feeling admin". Tidak ada audit objektif saat sinyal salah.</p>
+          <h3 class="pain-title">Capek Analisa, Tetap Belum Tentu Ketemu Kandidat</h3>
+          <p class="pain-desc">Berjam-jam Buka Chart, Hasilnya Belum Tentu Lebih Jelas. Cek fundamental, news, indikator, screener, running trade, sampai order book. Banyak metode bisa dipakai, tapi semuanya butuh waktu dan tetap nggak selalu akurat. Ada trader yang akhirnya beralih bikin screener sendiri hanya supaya proses mencari saham lebih efisien.</p>
         </div>
       </div>
     </div>
@@ -2814,238 +2993,13 @@ footer p {
 
   <div class="glow-line"></div>
 
-  <!-- ===================== HOW IT WORKS (STOCKWISE ZIG-ZAG TIMELINE) ===================== -->
-  <section id="cara-kerja" class="timeline-section">
-    <div class="wrap">
-      <div class="sec-center">
-        <span class="eyebrow">AI PIPELINE ARCHITECTURE</span>
-        <h2 class="sh">Dari 800+ Data Mentah<br>Menjadi <span class="ac">Sinyal Siap Eksekusi</span></h2>
-        <p class="sh-sub">Setiap rekomendasi melewati 4 lapis validasi kuantitatif otomatis tanpa campur tangan emosi manusia.</p>
-      </div>
-
-      <div class="tl-timeline-wrap">
-        <!-- Continuous vertical center line -->
-        <div class="tl-center-line"></div>
-
-        <!-- ==================== STEP 01 ==================== -->
-        <div class="tl-row tl-odd">
-          <!-- Center Node (Desktop) -->
-          <div class="tl-center-node">
-            <span>1</span>
-          </div>
-
-          <!-- Left Column: Content -->
-          <div class="tl-col tl-col-text">
-            <div class="tl-header-row">
-              <div class="tl-mobile-node">
-                <span>1</span>
-              </div>
-              <div class="tl-kicker">DATA INGESTION LAYER</div>
-            </div>
-            <h3 class="tl-title-main">Ambil Data 800+ Saham BEI</h3>
-            <h4 class="tl-title-sub">Secara Real-Time</h4>
-            <p class="tl-desc">
-              Algoritma kami terhubung langsung ke datafeed bursa saham Indonesia. Membaca pergerakan tick-by-tick OHLCV live mulai dari sesi pra-pembukaan (08:45 WIB), jam transaksi aktif bursa, hingga closing session.
-            </p>
-            <div class="tl-pills">
-              <span class="tl-pill">OHLCV Live Stream</span>
-              <span class="tl-pill">800+ Emiten IDX</span>
-              <span class="tl-pill">Pre/Post-Market Scan</span>
-              <span class="tl-pill">Volume Accumulation</span>
-            </div>
-          </div>
-
-          <!-- Right Column: Visual Card -->
-          <div class="tl-col tl-col-visual">
-            <div class="tl-visual-wrap">
-              <div class="tl-visual-card tl-card-image">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zODBfdzZpOWIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zODBfdzZpOWIiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM4MF93Nmk5YiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM4MF93Nmk5YikiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM4MF93Nmk5YikiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNzYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNjgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zODBfdzZpOWIpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxOTApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkFJIFBJUEVMSU5FPC90ZXh0PgoKICAgIDwhLS0gTWFpbiBUaXRsZSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQuNSIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSI+U1RFUCAwMTogREFUQSBJTkdFU1RJT048L3RleHQ+CgogICAgPCEtLSBEaW1lbnNpb25zIC0tPgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA2MDAgw5cgMzgwIFBYIF08L3RleHQ+CgogICAgPCEtLSBIZWxwZXIgVGV4dCAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPkdhbnRpIGRlbmdhbiBmaWxlIGdhbWJhciBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Timeline Step 1 - Data Ingestion Layer Placeholder" class="tl-mockup-img" width="600" height="380">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==================== STEP 02 ==================== -->
-        <div class="tl-row tl-even">
-          <!-- Center Node (Desktop) -->
-          <div class="tl-center-node">
-            <span>2</span>
-          </div>
-
-          <!-- Left Column (Desktop): Visual Card / Mobile: order 2 -->
-          <div class="tl-col tl-col-visual">
-            <div class="tl-visual-wrap">
-              <div class="tl-visual-card tl-card-image">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zODBfdGRuaTgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zODBfdGRuaTgiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM4MF90ZG5pOCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM4MF90ZG5pOCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM4MF90ZG5pOCkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNzYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNjgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zODBfdGRuaTgpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxOTApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkFJIFBJUEVMSU5FPC90ZXh0PgoKICAgIDwhLS0gTWFpbiBUaXRsZSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQuNSIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSI+U1RFUCAwMjogUVVBTlRJVEFUSVZFIEVOR0lORTwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzODAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgZ2FtYmFyIEFuZGE8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Timeline Step 2 - Quantitative Engine Placeholder" class="tl-mockup-img" width="600" height="380">
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column (Desktop): Content / Mobile: order 1 -->
-          <div class="tl-col tl-col-text">
-            <div class="tl-header-row">
-              <div class="tl-mobile-node">
-                <span>2</span>
-              </div>
-              <div class="tl-kicker">QUANTITATIVE ENGINE</div>
-            </div>
-            <h3 class="tl-title-main">Kalkulasi 7 Indikator Teknikal</h3>
-            <h4 class="tl-title-sub">Multi-Timeframe Engine</h4>
-            <p class="tl-desc">
-              Bukan sekadar 1 indikator tunggal. Algoritma menghitung RSI, MACD, EMA 20/50, VWAP, ATR Volatility, ADX, dan Bollinger Bands secara simultan pada 2 timeframe (60-menit dan Daily) untuk memverifikasi tren dan kekuatan volume.
-            </p>
-            <div class="tl-pills">
-              <span class="tl-pill">EMA 20/50 Ribbon</span>
-              <span class="tl-pill">MACD Divergence</span>
-              <span class="tl-pill">VWAP Institutional</span>
-              <span class="tl-pill">ATR Volatility Band</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==================== STEP 03 ==================== -->
-        <div class="tl-row tl-odd">
-          <!-- Center Node (Desktop) -->
-          <div class="tl-center-node">
-            <span>3</span>
-          </div>
-
-          <!-- Left Column: Content -->
-          <div class="tl-col tl-col-text">
-            <div class="tl-header-row">
-              <div class="tl-mobile-node">
-                <span>3</span>
-              </div>
-              <div class="tl-kicker">STRATEGY & REGIME FILTER</div>
-            </div>
-            <h3 class="tl-title-main">AI Cross-Check + Filter</h3>
-            <h4 class="tl-title-sub">Anti-Gorengan Ketat</h4>
-            <p class="tl-desc">
-              Sebelum sinyal lolos, sistem mengevaluasi rezim pasar IHSG (Bullish, Cautious, atau Bearish) dan menjalankan filter eliminasi anti-gorengan. Saham tidur Rp 50, saham FCA pemantauan khusus, dan volume semu langsung dibuang. Hanya probabilitas &gt; 80% yang diizinkan.
-            </p>
-            <div class="tl-pills">
-              <span class="tl-pill">IHSG Macro Regime</span>
-              <span class="tl-pill">Turnover Min &gt; 5 Miliar</span>
-              <span class="tl-pill">No Papan Pemantauan FCA</span>
-              <span class="tl-pill">Score Probabilitas &gt; 80%</span>
-            </div>
-          </div>
-
-          <!-- Right Column: Visual Card -->
-          <div class="tl-col tl-col-visual">
-            <div class="tl-visual-wrap">
-              <div class="tl-visual-card tl-card-image">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zODBfNGxtNHciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zODBfNGxtNHciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM4MF80bG00dyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM4MF80bG00dykiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM4MF80bG00dykiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNzYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNjgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zODBfNGxtNHcpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxOTApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkFJIFBJUEVMSU5FPC90ZXh0PgoKICAgIDwhLS0gTWFpbiBUaXRsZSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQuNSIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSI+U1RFUCAwMzogU1RSQVRFR1kgJmFtcDsgUkVHSU1FIEZJTFRFUjwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzODAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgZ2FtYmFyIEFuZGE8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Timeline Step 3 - Strategy & Regime Filter Placeholder" class="tl-mockup-img" width="600" height="380">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==================== STEP 04 ==================== -->
-        <div class="tl-row tl-even">
-          <!-- Center Node (Desktop) -->
-          <div class="tl-center-node">
-            <span>4</span>
-          </div>
-
-          <!-- Left Column (Desktop): Visual Card / Mobile: order 2 -->
-          <div class="tl-col tl-col-visual">
-            <div class="tl-visual-wrap">
-              <div class="tl-visual-card tl-card-image">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zODBfNXYwYWUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zODBfNXYwYWUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM4MF81djBhZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM4MF81djBhZSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM4MF81djBhZSkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNzYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNjgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zODBfNXYwYWUpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxOTApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkFJIFBJUEVMSU5FPC90ZXh0PgoKICAgIDwhLS0gTWFpbiBUaXRsZSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQuNSIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSI+U1RFUCAwNDogREVMSVZFUlkgJmFtcDsgQVVUTy1BVURJVDwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzODAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgZ2FtYmFyIEFuZGE8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Timeline Step 4 - Delivery & Auto-Audit Placeholder" class="tl-mockup-img" width="600" height="380">
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column (Desktop): Content / Mobile: order 1 -->
-          <div class="tl-col tl-col-text">
-            <div class="tl-header-row">
-              <div class="tl-mobile-node">
-                <span>4</span>
-              </div>
-              <div class="tl-kicker">DELIVERY & AUTO-AUDIT</div>
-            </div>
-            <h3 class="tl-title-main">Kirim ke Dashboard & Discord</h3>
-            <h4 class="tl-title-sub">+ Auto-Audit Bot 10 Menit</h4>
-            <p class="tl-desc">
-              Sinyal matang otomatis dikirim ke Dashboard web Anda dan Discord VIP lengkap dengan nominal Entry, TP 1, TP 2, serta SL exact dalam Rupiah. Bot otomatis meng-audit harga bursa setiap 10 menit dan mengirimkan notifikasi saat target profit tercapai.
-            </p>
-            <div class="tl-pills">
-              <span class="tl-pill">Web Dashboard</span>
-              <span class="tl-pill">Discord VIP Alert</span>
-              <span class="tl-pill">Target Exact Rupiah</span>
-              <span class="tl-pill">10-Minute Auto Audit</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div></section>
-
-  <div class="glow-line"></div>
-
-  <!-- ===================== ANTI-GORENGAN FILTER SPECS ===================== -->
-  <section id="anti-gorengan" class="sec-alt">
-    <div class="wrap">
-      <div class="sec-center">
-        <span class="eyebrow">RISK MANAGEMENT FIRST</span>
-        <h2 class="sh">Standar Ketat Kami: <span class="ac">Bebas Saham Gorengan</span></h2>
-        <p class="sh-sub">Kami tidak pernah merekomendasikan saham tidur atau saham manipulatif. Inilah 4 kriteria eliminasi permanen kami.</p>
-      </div>
-
-      <div class="anti-grid">
-        <div class="anti-card">
-          <div class="anti-card-header">
-            <div class="anti-card-icon">1</div>
-            <div class="anti-card-title">Turnover Transaksi Min. Rp 5 Miliar / Hari</div>
-          </div>
-          <p class="anti-rule">
-            Hanya emiten dengan likuiditas riil tinggi yang masuk radar. Anda bisa masuk dan keluar posisi kapan saja <strong>tanpa takut nyangkut karena tidak ada pembeli</strong>.
-          </p>
-        </div>
-
-        <div class="anti-card">
-          <div class="anti-card-header">
-            <div class="anti-card-icon">2</div>
-            <div class="anti-card-title">Eliminasi Saham Gocap & Zombie</div>
-          </div>
-          <p class="anti-rule">
-            Sistem secara otomatis memblokir saham yang mendekati batas Rp 50 atau saham tidur tanpa volatilitas sehat. <strong>Zero risk terjebak di saham zombie</strong>.
-          </p>
-        </div>
-
-        <div class="anti-card">
-          <div class="anti-card-header">
-            <div class="anti-card-icon">3</div>
-            <div class="anti-card-title">Deteksi Spike Volume Palsu</div>
-          </div>
-          <p class="anti-rule">
-            AI membedakan antara akumulasi institusional asli dengan perputaran semu bandar (wash trading). <strong>Sinyal palsu langsung dibatalkan sebelum terbit</strong>.
-          </p>
-        </div>
-
-        <div class="anti-card">
-          <div class="anti-card-header">
-            <div class="anti-card-icon">4</div>
-            <div class="anti-card-title">Filter Papan Pemantauan Khusus (FCA)</div>
-          </div>
-          <p class="anti-rule">
-            Saham dengan notasi khusus BEI dan skema periodic call auction otomatis di-exclude demi <strong>keamanan maksimal modal portofolio Anda</strong>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="glow-line"></div>
-
-  <!-- ===================== COMPARISON TABLE ===================== -->
+<!-- ===================== COMPARISON TABLE ===================== -->
   <section id="perbandingan">
     <div class="wrap">
       <div class="sec-center">
-        <span class="eyebrow">OBJEKTIF & TRANSPARAN</span>
-        <h2 class="sh">Raja Saham AI vs <span class="ac">Solusi Lainnya</span></h2>
-        <p class="sh-sub">Lihat perbandingan nyata antara teknologi kuantitatif modern dengan metode konvensional.</p>
+        <span class="eyebrow">SEBELUM VS SESUDAH</span>
+        <h2 class="sh">Tanpa Raja Saham AI vs <span class="ac">Raja Saham AI</span></h2>
+        <p class="sh-sub">Sebelumnya Repot Cari Saham Sendiri. Sekarang Lebih Siap dengan Raja Saham AI.</p>
       </div>
 
       <!-- StockWise Style Comparison Grid (2 Cards) -->
@@ -3060,7 +3014,7 @@ footer p {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </div>
-            <h3 class="comp-card-title">Metode Konvensional / Solusi Lain</h3>
+            <h3 class="comp-card-title">Tanpa Raja Saham AI</h3>
           </div>
 
           <ul class="comp-item-list">
@@ -3069,7 +3023,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Cakupan Sangat Terbatas:</strong> Hanya memantau 3–5 saham pilihan admin atau rumor subjektif dari chat grup.
+                Masuk market tanpa konteks yang cukup
               </span>
             </li>
             <li class="comp-list-item">
@@ -3077,7 +3031,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Analisis Berbasis Emosi / Rumor:</strong> Mengandalkan feeling, "kabar burung", atau kepentingan insider pom-pom.
+                Capek screening ratusan saham manual
               </span>
             </li>
             <li class="comp-list-item">
@@ -3085,7 +3039,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Tanpa Filter Anti-Gorengan:</strong> Sering merekomendasikan saham illiquid, saham tidur Rp 50, dan volume semu.
+                Peluang sering telat disadari
               </span>
             </li>
             <li class="comp-list-item">
@@ -3093,7 +3047,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Titik Entry & Exit Ambigu:</strong> Rekomendasi serba abu-abu ("beli dekat support", "take profit sesuka hati").
+                Mudah terdistraksi saham viral
               </span>
             </li>
             <li class="comp-list-item">
@@ -3101,15 +3055,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Tanpa Auto-Audit & Transparansi:</strong> Tidak ada audit performa (postingan rekomendasi rugi sering dihapus diam-diam).
-              </span>
-            </li>
-            <li class="comp-list-item">
-              <span class="comp-item-icon red">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              <span class="comp-item-text">
-                <strong>Menguras Waktu & Energi:</strong> Harus memantau layar bursa seharian dan membaca ribuan pesan chat yang bising.
+                Waktu habis, fokus terkuras
               </span>
             </li>
           </ul>
@@ -3123,7 +3069,7 @@ footer p {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <h3 class="comp-card-title">👑 Raja Saham AI <span class="highlight-text">(Kuantitatif)</span></h3>
+            <h3 class="comp-card-title">👑 Raja Saham AI</h3>
           </div>
 
           <ul class="comp-item-list">
@@ -3132,7 +3078,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Pemindaian 800+ Saham BEI:</strong> Mesin otomatis memindai seluruh emiten bursa live tick-by-tick secara real-time.
+                IHSG Outlook tersedia sebelum market buka
               </span>
             </li>
             <li class="comp-list-item">
@@ -3140,7 +3086,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
               <span class="comp-item-text">
-                <strong>100% Analisis Kuantitatif:</strong> Dihitung simultan dengan 7 indikator teknikal pada 2 timeframe (60M & Daily).
+                Ratusan saham disaring lebih cepat
               </span>
             </li>
             <li class="comp-list-item">
@@ -3148,7 +3094,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Filter Anti-Gorengan Ketat:</strong> Eliminasi otomatis membuang saham FCA, turnover < 5M, dan volume palsu.
+                Kandidat saham lebih cepat ditemukan
               </span>
             </li>
             <li class="comp-list-item">
@@ -3156,7 +3102,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Entry, TP, & SL Exact Rupiah:</strong> Nominal angka presisi siap pasang order tanpa ragu dan bebas bias emosi.
+                Lebih sedikit noise, lebih banyak kejelasan
               </span>
             </li>
             <li class="comp-list-item">
@@ -3164,15 +3110,7 @@ footer p {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
               <span class="comp-item-text">
-                <strong>Auto-Audit Bot Tiap 10 Menit:</strong> Bot otomatis meng-audit harga bursa secara transparan dan kirim alert saat target hit.
-              </span>
-            </li>
-            <li class="comp-list-item">
-              <span class="comp-item-icon cyan">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span class="comp-item-text">
-                <strong>Efisiensi Waktu (< 5 Menit / Hari):</strong> Sinyal matang otomatis terkirim langsung ke Dashboard web & Discord VIP Anda.
+                Trading terasa lebih ringan dan terstruktur
               </span>
             </li>
           </ul>
@@ -3184,102 +3122,123 @@ footer p {
 
   <div class="glow-line"></div>
 
-  <!-- ===================== MATERI PEMBELAJARAN KELAS (STOCKWISE STYLE) ===================== -->
+<!-- ===================== CARA MENGGUNAKAN RAJA SAHAM AI (STOCKWISE STYLE) ===================== -->
   <section id="materi-kelas" class="materi-sec">
     <div class="wrap">
       <div class="sec-center">
-        <span class="eyebrow">ACADEMY &amp; KURIKULUM</span>
-        <h2 class="sh"><span class="ac">Materi</span> Pembelajaran Kelas</h2>
-        <p class="sh-sub">Alur pembelajaran yang dirancang bertahap, dari dasar sampai strategi kuantitatif lanjut, siap dipraktikkan segera.</p>
+        <span class="eyebrow">CARA MENGGUNAKAN RAJA SAHAM AI</span>
+        <h2 class="sh">Cukup 5 Langkah untuk Mulai Menggunakan <span class="ac">Raja Saham AI</span></h2>
+        <p class="sh-sub">Raja Saham AI dirancang supaya proses screening dan pengambilan keputusan trading terasa lebih praktis—bahkan untuk Anda yang tidak punya waktu mantengin ratusan chart setiap hari.</p>
       </div>
 
       <div class="materi-list">
-        <!-- DAY 1 -->
+        <!-- LANGKAH 1 -->
         <div class="materi-item">
           <div class="materi-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zNjBfMmlpangiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zNjBfMmlpangiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM2MF8yaWlqeCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM2MF8yaWlqeCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM2MF8yaWlqeCkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zNjBfMmlpangpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPk1BVEVSSSBLRUxBUyAtIERBWSAwMTwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkRBWSAwMTogRk9OREFTSSBTQUhBTSAmYW1wOyBTVFJVS1RVUiBQQVNBUjwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzNjAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgdGh1bWJuYWlsIG1hdGVyaSBrZWxhcyBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Stock Market: The Basics" width="600" height="360">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3N0ZXBfMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwNzBkMWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwYTE1MmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODE0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyaWRfc3RlcF8xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93X3N0ZXBfMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2JnX3N0ZXBfMSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfc3RlcF8xKSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI1OTYiIGhlaWdodD0iMzU2IiByeD0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1NiwgMTg5LCAyNDgsIDAuMjgpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1ODgiIGhlaWdodD0iMzQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIuNSIgcng9IjEuMjUiIGZpbGw9InVybCgjZ2xvd19zdGVwXzEpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjI0IiBmaWxsPSIjMGIxYTM4IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8cGF0aCBkPSJNIC0xMCAtMjQgTCAxMCAtMjQgTSAtMTAgLTMyIEwgMTAgLTMyIE0gLTQgLTM2IEwgLTQgLTIwIE0gNCAtMzYgTCA0IC0yMCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTI3IiByPSIyIiBmaWxsPSIjMzhiZGY4Ii8+CiAgICA8cmVjdCB4PSItOTAiIHk9IjQiIHdpZHRoPSIxODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkxBTkdLQUggMDE8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5TSUFQS0FOIFNFQkVMVU0gTUFSS0VUIEJVS0E8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzNjAgUFggXTwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPkdhbnRpIGRlbmdhbiBzY3JlZW5zaG90L21vY2t1cCBsYW5na2FoIEFuZGE8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Langkah 1: Siapkan Sebelum Market Buka" width="600" height="360">
           </div>
           <div class="materi-content">
-            <div class="materi-tag">DAY 1</div>
-            <h3 class="materi-title">Stock Market: The Basics</h3>
-            <div class="materi-sub">Konsep &amp; pengertian dasar saham</div>
+            <div class="materi-tag">LANGKAH 01</div>
+            <h3 class="materi-title">Siapkan Sebelum Market Buka</h3>
             <p class="materi-desc">
-              Kalian akan mempelajari konsep dan pengertian dasar untuk berinvestasi saham, memahami anatomi bursa saham BEI, membaca candlestick, serta fondasi analisa pasar modal.
+              Mulai sekitar <strong>08.45–09.00 WIB</strong>. Buka aplikasi trading, orderbook, dan Raja Saham AI agar Anda siap saat data saham mulai masuk setelah market dibuka.
             </p>
-            <div class="materi-meta">
-              <span>⏱️ ± 4 jam pembelajaran</span>
+            <div class="step-highlight-box">
+              💡 <strong>Intinya:</strong> Datang ke market dalam kondisi siap, bukan baru mulai cari informasi setelah harga bergerak.
             </div>
           </div>
         </div>
 
-        <!-- DAY 2 (Reverse) -->
+        <!-- LANGKAH 2 (Reverse) -->
         <div class="materi-item reverse">
           <div class="materi-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zNjBfaDlxaDkiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zNjBfaDlxaDkiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM2MF9oOXFoOSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM2MF9oOXFoOSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM2MF9oOXFoOSkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zNjBfaDlxaDkpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPk1BVEVSSSBLRUxBUyAtIERBWSAwMjwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkRBWSAwMjogUFNJS09MT0dJICZhbXA7IE1BTkFKRU1FTiBFTU9TSTwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzNjAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgdGh1bWJuYWlsIG1hdGVyaSBrZWxhcyBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Mindset &amp; Psychology" width="600" height="360">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3N0ZXBfMiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwNzBkMWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwYTE1MmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODE0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyaWRfc3RlcF8yIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93X3N0ZXBfMiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2JnX3N0ZXBfMikiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfc3RlcF8yKSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI1OTYiIGhlaWdodD0iMzU2IiByeD0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1NiwgMTg5LCAyNDgsIDAuMjgpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1ODgiIGhlaWdodD0iMzQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIuNSIgcng9IjEuMjUiIGZpbGw9InVybCgjZ2xvd19zdGVwXzIpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjI0IiBmaWxsPSIjMGIxYTM4IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8cGF0aCBkPSJNIC0xMCAtMjQgTCAxMCAtMjQgTSAtMTAgLTMyIEwgMTAgLTMyIE0gLTQgLTM2IEwgLTQgLTIwIE0gNCAtMzYgTCA0IC0yMCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTI3IiByPSIyIiBmaWxsPSIjMzhiZGY4Ii8+CiAgICA8cmVjdCB4PSItOTAiIHk9IjQiIHdpZHRoPSIxODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkxBTkdLQUggMDI8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5MSUhBVCBQSUNLIE1BU1VLIERJIERBU0hCT0FSRDwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0iJ0pldEJyYWlucyBNb25vJywgJ0ZpcmEgQ29kZScsIG1vbm9zcGFjZSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjEiPlsgNjAwIMOXIDM2MCBQWCBdPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIHNjcmVlbnNob3QvbW9ja3VwIGxhbmdrYWggQW5kYTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Langkah 2: Lihat Pick yang Masuk di Dashboard" width="600" height="360">
           </div>
           <div class="materi-content">
-            <div class="materi-tag">DAY 2</div>
-            <h3 class="materi-title">Mindset &amp; Psychology</h3>
-            <div class="materi-sub">Mindset yang benar untuk menang</div>
+            <div class="materi-tag">LANGKAH 02</div>
+            <h3 class="materi-title">Lihat Pick yang Masuk di Dashboard</h3>
             <p class="materi-desc">
-              Kalian akan mempelajari bagaimana cara berpikir investor terbaik di dunia, mengendalikan emosi takut (fear) dan serakah (greed), serta membangun psikologi trading yang konsisten.
+              Setelah market buka, pantau dashboard Raja Saham AI dan lihat saham yang masuk ke masing-masing formula/strategy.
             </p>
-            <div class="materi-meta">
-              <span>⏱️ ± 4 jam pembelajaran</span>
+            <p class="materi-desc">
+              Prioritaskan saham dengan status <span class="step-chip open">OPEN</span> dan pahami timeframe strateginya sebelum mengambil keputusan.
+            </p>
+            <div class="step-highlight-box">
+              🎯 <strong>Aturan Fokus:</strong> Tidak perlu beli semuanya. Cukup pilih <strong>1–3 peluang terbaik</strong>.
             </div>
           </div>
         </div>
 
-        <!-- DAY 3 -->
+        <!-- LANGKAH 3 -->
         <div class="materi-item">
           <div class="materi-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zNjBfbTVhcjgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zNjBfbTVhcjgiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM2MF9tNWFyOCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM2MF9tNWFyOCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM2MF9tNWFyOCkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zNjBfbTVhcjgpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPk1BVEVSSSBLRUxBUyAtIERBWSAwMzwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkRBWSAwMzogQU5BTElTSVMgVEVLTklLQUwgJmFtcDsgU0lHTkFMIFZFUklGSUNBVElPTjwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzNjAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgdGh1bWJuYWlsIG1hdGVyaSBrZWxhcyBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Skill to Win The Market" width="600" height="360">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3N0ZXBfMyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwNzBkMWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwYTE1MmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODE0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyaWRfc3RlcF8zIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93X3N0ZXBfMyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2JnX3N0ZXBfMykiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfc3RlcF8zKSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI1OTYiIGhlaWdodD0iMzU2IiByeD0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1NiwgMTg5LCAyNDgsIDAuMjgpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1ODgiIGhlaWdodD0iMzQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIuNSIgcng9IjEuMjUiIGZpbGw9InVybCgjZ2xvd19zdGVwXzMpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjI0IiBmaWxsPSIjMGIxYTM4IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8cGF0aCBkPSJNIC0xMCAtMjQgTCAxMCAtMjQgTSAtMTAgLTMyIEwgMTAgLTMyIE0gLTQgLTM2IEwgLTQgLTIwIE0gNCAtMzYgTCA0IC0yMCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTI3IiByPSIyIiBmaWxsPSIjMzhiZGY4Ii8+CiAgICA8cmVjdCB4PSItOTAiIHk9IjQiIHdpZHRoPSIxODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkxBTkdLQUggMDM8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5DRUsgS09ORElTSSBNQVJLRVQgJmFtcDsgT1JERVJCT09LPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA2MDAgw5cgMzYwIFBYIF08L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY0NzQ4YiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iNTAwIj5HYW50aSBkZW5nYW4gc2NyZWVuc2hvdC9tb2NrdXAgbGFuZ2thaCBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Langkah 3: Cek Kondisi Market & Orderbook" width="600" height="360">
           </div>
           <div class="materi-content">
-            <div class="materi-tag">DAY 3</div>
-            <h3 class="materi-title">Skill to Win The Market</h3>
-            <div class="materi-sub">Skill mencari multibagger di market</div>
+            <div class="materi-tag">LANGKAH 03</div>
+            <h3 class="materi-title">Cek Kondisi Market &amp; Orderbook</h3>
             <p class="materi-desc">
-              Kalian akan mempelajari bagaimana bisa mendapatkan keuntungan ratusan hingga ribuan persen di pasar saham, menyaring emiten berpotensi tinggi, serta timing entry dan exit presisi.
+              Sebelum entry, jangan hanya melihat nama saham. Periksa juga:
             </p>
-            <div class="materi-meta">
-              <span>⏱️ ± 4 jam pembelajaran</span>
+            <ul class="step-sub-list">
+              <li class="step-sub-item"><span class="s-icon check">✓</span> Kondisi market &amp; IHSG</li>
+              <li class="step-sub-item"><span class="s-icon check">✓</span> Orderbook &amp; ketebalan bid-offer</li>
+              <li class="step-sub-item"><span class="s-icon check">✓</span> Volatilitas pergerakan saham</li>
+              <li class="step-sub-item"><span class="s-icon check">✓</span> Risk level &amp; batas toleransi</li>
+              <li class="step-sub-item"><span class="s-icon check">✓</span> Apakah harga masih masuk akal untuk dikejar</li>
+            </ul>
+            <div class="step-highlight-box">
+              ⚠️ <strong>Disiplin:</strong> Kalau harga sudah terlalu jauh bergerak, <strong>skip</strong>.
             </div>
           </div>
         </div>
 
-        <!-- DAY 4 (Reverse) -->
+        <!-- LANGKAH 4 (Reverse) -->
         <div class="materi-item reverse">
           <div class="materi-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zNjBfN241NjUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zNjBfN241NjUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM2MF83bjU2NSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM2MF83bjU2NSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM2MF83bjU2NSkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zNjBfN241NjUpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPk1BVEVSSSBLRUxBUyAtIERBWSAwNDwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkRBWSAwNDogTU9ORVkgTUFOQUdFTUVOVCAmYW1wOyBQT1NJVElPTiBTSVpJTkc8L3RleHQ+CgogICAgPCEtLSBEaW1lbnNpb25zIC0tPgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA2MDAgw5cgMzYwIFBYIF08L3RleHQ+CgogICAgPCEtLSBIZWxwZXIgVGV4dCAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPkdhbnRpIGRlbmdhbiBmaWxlIHRodW1ibmFpbCBtYXRlcmkga2VsYXMgQW5kYTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Money Management" width="600" height="360">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3N0ZXBfNCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwNzBkMWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwYTE1MmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODE0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyaWRfc3RlcF80IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93X3N0ZXBfNCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2JnX3N0ZXBfNCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfc3RlcF80KSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI1OTYiIGhlaWdodD0iMzU2IiByeD0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1NiwgMTg5LCAyNDgsIDAuMjgpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1ODgiIGhlaWdodD0iMzQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIuNSIgcng9IjEuMjUiIGZpbGw9InVybCgjZ2xvd19zdGVwXzQpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjI0IiBmaWxsPSIjMGIxYTM4IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8cGF0aCBkPSJNIC0xMCAtMjQgTCAxMCAtMjQgTSAtMTAgLTMyIEwgMTAgLTMyIE0gLTQgLTM2IEwgLTQgLTIwIE0gNCAtMzYgTCA0IC0yMCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTI3IiByPSIyIiBmaWxsPSIjMzhiZGY4Ii8+CiAgICA8cmVjdCB4PSItOTAiIHk9IjQiIHdpZHRoPSIxODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkxBTkdLQUggMDQ8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5FTlRSWSBESVNJUExJTiAmYW1wOyBKQU5HQU4gQ0hBU0lORzwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0iJ0pldEJyYWlucyBNb25vJywgJ0ZpcmEgQ29kZScsIG1vbm9zcGFjZSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjEiPlsgNjAwIMOXIDM2MCBQWCBdPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIHNjcmVlbnNob3QvbW9ja3VwIGxhbmdrYWggQW5kYTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Langkah 4: Entry Secara Disiplin, Jangan Chasing" width="600" height="360">
           </div>
           <div class="materi-content">
-            <div class="materi-tag">DAY 4</div>
-            <h3 class="materi-title">Money Management</h3>
-            <div class="materi-sub">Pengaturan uang untuk investasi</div>
+            <div class="materi-tag">LANGKAH 04</div>
+            <h3 class="materi-title">Entry Secara Disiplin, Jangan Chasing</h3>
             <p class="materi-desc">
-              Kalian akan mempelajari bagaimana mengatur uang dengan bijak untuk berinvestasi saham, membatasi risiko per transaksi, alokasi aset portofolio, dan menjaga modal terhindar dari kerugian besar.
+              Periode utama Raja Saham AI biasanya ada di <strong>Golden Session</strong> sekitar <strong>09.00–09.30 WIB</strong>.
             </p>
-            <div class="materi-meta">
-              <span>⏱️ ± 4 jam pembelajaran</span>
+            <p class="materi-desc">
+              Kalau menemukan kandidat yang sesuai, entry dengan ukuran posisi yang wajar dan hindari:
+            </p>
+            <ul class="step-sub-list">
+              <li class="step-sub-item"><span class="s-icon cross">✕</span> <strong>All-in</strong> dalam satu saham</li>
+              <li class="step-sub-item"><span class="s-icon cross">✕</span> <strong>Overtrading</strong> karena emosi</li>
+              <li class="step-sub-item"><span class="s-icon cross">✕</span> <strong>Mengejar saham</strong> yang sudah terbang</li>
+            </ul>
+            <div class="step-highlight-box">
+              🎯 <strong>Fokus Utama:</strong> Fokus pada eksekusi trading plan yang rapi, bukan mengejar semua peluang.
             </div>
           </div>
         </div>
 
-        <!-- DAY 5 (EXCLUSIVE) -->
+        <!-- LANGKAH 5 -->
         <div class="materi-item">
           <div class="materi-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzYwMF8zNjBfZGYzZnEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzYwMF8zNjBfZGYzZnEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNjAwXzM2MF9kZjNmcSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNjAwXzM2MF9kZjNmcSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNjAwXzM2MF9kZjNmcSkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjU5NiIgaGVpZ2h0PSIzNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjU4OCIgaGVpZ2h0PSIzNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzYwMF8zNjBfZGYzZnEpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODUiIHk9IjQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPk1BVEVSSSBLRUxBUyAtIERBWSAwNTwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkRBWSAwNTogTElWRSBUUkFESU5HICZhbXA7IFNUUkFURUdZIEVYRUNVVElPTjwvdGV4dD4KCiAgICA8IS0tIERpbWVuc2lvbnMgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGxldHRlci1zcGFjaW5nPSIxIj5bIDYwMCDDlyAzNjAgUFggXTwvdGV4dD4KCiAgICA8IS0tIEhlbHBlciBUZXh0IC0tPgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+R2FudGkgZGVuZ2FuIGZpbGUgdGh1bWJuYWlsIG1hdGVyaSBrZWxhcyBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Market Outlook &amp; QnA" width="600" height="360">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3N0ZXBfNSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwNzBkMWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwYTE1MmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODE0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyaWRfc3RlcF81IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDI0IDAgTCAwIDAgMCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4wNikiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG93X3N0ZXBfNSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2JnX3N0ZXBfNSkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfc3RlcF81KSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI1OTYiIGhlaWdodD0iMzU2IiByeD0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1NiwgMTg5LCAyNDgsIDAuMjgpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1ODgiIGhlaWdodD0iMzQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSIyMCIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIuNSIgcng9IjEuMjUiIGZpbGw9InVybCgjZ2xvd19zdGVwXzUpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLCAxODApIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjI0IiBmaWxsPSIjMGIxYTM4IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8cGF0aCBkPSJNIC0xMCAtMjQgTCAxMCAtMjQgTSAtMTAgLTMyIEwgMTAgLTMyIE0gLTQgLTM2IEwgLTQgLTIwIE0gNCAtMzYgTCA0IC0yMCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI0IiBjeT0iLTI3IiByPSIyIiBmaWxsPSIjMzhiZGY4Ii8+CiAgICA8cmVjdCB4PSItOTAiIHk9IjQiIHdpZHRoPSIxODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPkxBTkdLQUggMDU8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5QQU5UQVUgU1RBVFVTLCBQUk9GSVQgJmFtcDsgUklTSUtPPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA2MDAgw5cgMzYwIFBYIF08L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY0NzQ4YiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iNTAwIj5HYW50aSBkZW5nYW4gc2NyZWVuc2hvdC9tb2NrdXAgbGFuZ2thaCBBbmRhPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Langkah 5: Pantau Status, Ambil Profit, dan Jaga Risiko" width="600" height="360">
           </div>
           <div class="materi-content">
-            <div class="materi-tag exclusive">DAY 5 - EXCLUSIVE</div>
-            <h3 class="materi-title">Market Outlook &amp; QnA</h3>
-            <div class="materi-sub">Insight mendalam dan detail di bursa saham</div>
+            <div class="materi-tag">LANGKAH 05</div>
+            <h3 class="materi-title">Pantau Status, Ambil Profit, dan Jaga Risiko</h3>
             <p class="materi-desc">
-              Dapatkan insight dan detail lebih mendalam di bursa saham dari sesi Masterclass, dimana kamu akan belajar Market Outlook, Macro &amp; Micro ekonomi, review watchlist saham, dan sesi Q&amp;A interaktif.
+              Setelah entry, perhatikan perubahan status pick di dashboard:
             </p>
-            <div class="materi-meta">
-              <span>🔥 ± 4 jam pembelajaran</span>
+            <ul class="step-sub-list">
+              <li class="step-sub-item"><span class="step-chip open">OPEN</span> → Masih dapat dipertimbangkan</li>
+              <li class="step-sub-item"><span class="step-chip win">WIN</span> → Target sistem tercapai, pertimbangkan ambil profit</li>
+              <li class="step-sub-item"><span class="step-chip loss">LOSS</span> → Ekspektasi sistem tidak tercapai, pertimbangkan exit</li>
+            </ul>
+            <p class="materi-desc">
+              Untuk strategi jangka pendek, referensi profit biasanya berada di kisaran <strong>+1% sampai +5%</strong>.
+            </p>
+            <div class="step-highlight-box golden">
+              🛡️ Dan yang paling penting: <strong>Protect Capital &gt; Chasing Profit</strong>
             </div>
           </div>
         </div>
@@ -3289,54 +3248,7 @@ footer p {
 
   <div class="glow-line"></div>
 
-  <!-- ===================== BONUS DAFTAR HARI INI ===================== -->
-  <section id="bonus" class="bonus-sec">
-    <div class="wrap">
-      <div class="sec-center">
-        <span class="eyebrow">EXCLUSIVE PERKS</span>
-        <h2 class="sh">🎁 Bonus Khusus <span class="ac">Pendaftaran Hari Ini</span></h2>
-        <p class="sh-sub">Dapatkan seluruh paket bonus eksklusif ini secara 100% gratis saat mengaktifkan akun Anda hari ini.</p>
-      </div>
-
-      <div class="bonus-grid">
-        <div class="bonus-card">
-          <span class="bonus-tag">BONUS 1</span>
-          <div class="bonus-icon">📘</div>
-          <h4 class="bonus-title">AI Quantitative Trading Playbook</h4>
-          <p class="bonus-desc">Panduan komprehensif mengelola money management, risk per trade 1-2%, dan psikologi eksekusi sinyal kuantitatif.</p>
-          <span class="bonus-val">NILAI RP 750.000 (GRATIS)</span>
-        </div>
-
-        <div class="bonus-card">
-          <span class="bonus-tag">BONUS 2</span>
-          <div class="bonus-icon">💬</div>
-          <h4 class="bonus-title">Akses Komunitas Discord VIP</h4>
-          <p class="bonus-desc">Saluran diskusi harian bersama ratusan trader aktif, update pre-market langsung, dan sesi tanya jawab teknikal.</p>
-          <span class="bonus-val">NILAI RP 1.500.000 (GRATIS)</span>
-        </div>
-
-        <div class="bonus-card">
-          <span class="bonus-tag">BONUS 3</span>
-          <div class="bonus-icon">📈</div>
-          <h4 class="bonus-title">Weekly Macro Watchlist &amp; Mentoring</h4>
-          <p class="bonus-desc">Ulasan mingguan arah IHSG, sektor potensial, dan persiapan watchlist saham sebelum pembukaan bursa hari Senin.</p>
-          <span class="bonus-val">NILAI RP 1.200.000 (GRATIS)</span>
-        </div>
-      </div>
-
-      <!-- Value Total Box -->
-      <div class="value-total-box">
-        <div class="vt-label">TOTAL NILAI RIIL KESELURUHAN SISTEM &amp; BONUS</div>
-        <div class="vt-price-slash">Rp 17.850.000+ / Tahun</div>
-        <div class="vt-real-deal">Hari Ini Cuma Mulai Dari <span class="text-gradient">Rp 299rb</span></div>
-        <p class="vt-sub">Kurang dari biaya cutloss satu kali akibat salah masuk saham gorengan.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="glow-line"></div>
-
-  <!-- ===================== TESTIMONIALS ===================== -->
+<!-- ===================== TESTIMONIALS ===================== -->
   <section id="testimoni" class="sec-alt">
     <div class="wrap">
       <div class="sec-center">
@@ -3354,13 +3266,12 @@ footer p {
           <div class="test-body">
             <div class="test-stars">★★★★★</div>
             <p class="test-quote">
-              "Sebagai karyawan yang ga bisa mantau chart setiap jam, Raja Saham ngebantu banget. <strong>Sinyal pre-market tinggal pasang antrean sebelum jam 9</strong>. TP dan SL-nya exact, ga bikin bingung!"
+              "Sebagai karyawan yang tidak bisa mantau chart berjam-jam, Raja Saham AI ngebantu banget. <strong>Waktu screening saya yang tadinya 2 jam tiap malam sekarang berkurang drastis</strong>. Tinggal cek stockpick terkurasi sebelum market buka!"
             </p>
             <div class="test-author">
-              <div class="test-avatar">HS</div>
               <div>
                 <div class="test-name">Hendra Setiawan</div>
-                <div class="test-city">Trader Part-Time, Jakarta</div>
+                <div class="test-city">Trader Part-Time &amp; Karyawan, Jakarta</div>
               </div>
             </div>
           </div>
@@ -3374,13 +3285,12 @@ footer p {
           <div class="test-body">
             <div class="test-stars">★★★★★</div>
             <p class="test-quote">
-              "Yang paling saya hargai adalah <strong>filternya yang ga pernah kasih saham gorengan</strong>. Dulu modal saya habis karena FOMO grup telegram. Sejak pakai Raja Saham, trading jadi jauh lebih tenang."
+              "Sangat terbantu dengan <strong>IHSG Outlook sebelum market buka</strong>. Jadi paham peta jalan pasar hari ini dan jauh lebih mudah menemukan saham mana yang layak dipantau tanpa pusing."
             </p>
             <div class="test-author">
-              <div class="test-avatar">DA</div>
               <div>
                 <div class="test-name">Dian Anggraini</div>
-                <div class="test-city">Wiraswasta, Bandung</div>
+                <div class="test-city">Pebisnis &amp; Trader, Bandung</div>
               </div>
             </div>
           </div>
@@ -3394,10 +3304,9 @@ footer p {
           <div class="test-body">
             <div class="test-stars">★★★★★</div>
             <p class="test-quote">
-              "Saya komparasikan dengan analisis teknikal saya pribadi. Hasilnya <strong>sekitar 80% selaras dan timing entry AI ini sangat presisi</strong>. Ditambah auto-audit bot di Discord-nya sangat membantu."
+              "Pengalaman menggunakan stockpick Raja Saham AI terasa sangat objektif. <strong>Komunitas Discord VIP-nya juga sangat supportive</strong>, jadi tempat belajar dan diskusi yang kondusif tanpa bising kabar angin."
             </p>
             <div class="test-author">
-              <div class="test-avatar">BP</div>
               <div>
                 <div class="test-name">Budi Prasetyo</div>
                 <div class="test-city">Investor Ritel, Surabaya</div>
@@ -3409,18 +3318,17 @@ footer p {
         <!-- Testi 4 -->
         <div class="test-card">
           <div class="test-img-wrap">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjYwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzQwMF8yNjBfYTBqNjQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzQwMF8yNjBfYTBqNjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNDAwXzI2MF9hMGo2NCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNDAwXzI2MF9hMGo2NCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNDAwXzI2MF9hMGo2NCkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjM5NiIgaGVpZ2h0PSIyNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjM4OCIgaGVpZ2h0PSIyNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzQwMF8yNjBfYTBqNjQpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwLCAxMzApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODAiIHk9IjQiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPlRFU1RJTU9OSUFMIE1FTUJFUjwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkJVS1RJIFBST0ZJVCBNRU1CRVIgIzQ8L3RleHQ+CgogICAgPCEtLSBEaW1lbnNpb25zIC0tPgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA0MDAgw5cgMjYwIFBYIF08L3RleHQ+CgogICAgPCEtLSBIZWxwZXIgVGV4dCAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPkdhbnRpIGRlbmdhbiBzY3JlZW5zaG90IHByb2ZpdCBtZW1iZXIgQW5kYTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Bukti Profit Raja Saham #4" width="400" height="260">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjYwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnXzQwMF8yNjBfYTBqNjQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkXzQwMF8yNjBfYTBqNjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfNDAwXzI2MF9hMGo2NCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYmdfNDAwXzI2MF9hMGo2NCkiLz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWRfNDAwXzI2MF9hMGo2NCkiLz4KCiAgPCEtLSBCb3JkZXIgRnJhbWUgLS0+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjM5NiIgaGVpZ2h0PSIyNTYiIHJ4PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4yOCkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjMwOCIgaGVpZ2h0PSIyNDgiIHJ4PSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPgoKICA8IS0tIFRvcCBBY2NlbnQgQmFyIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93XzQwMF8yNjBfYTBqNjQpIi8+CgogIDwhLS0gQ2VudGVyIENvbnRlbnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwLCAxMzApIj4KICAgIDwhLS0gSWNvbiBDaXJjbGUgLS0+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPCEtLSBJbWFnZSBJY29uIFZlY3RvciAtLT4KICAgIDxwYXRoIGQ9Ik0gLTEwIC0yNCBMIDEwIC0yNCBNIC0xMCAtMzIgTCAxMCAtMzIgTSAtNCAtMzYgTCAtNCAtMjAgTSA0IC0zNiBMIDQgLTIwIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSItMjciIHI9IjIiIGZpbGw9IiMzOGJkZjgiLz4KCiAgICA8IS0tIENhdGVnb3J5IFBpbGwgQmFkZ2UgLS0+CiAgICA8cmVjdCB4PSItODAiIHk9IjQiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgZmlsbD0iIzA4MTQyYiIgc3Ryb2tlPSJyZ2JhKDU2LCAxODksIDI0OCwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwLjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxLjUiPlRFU1RJTU9OSUFMIE1FTUJFUjwvdGV4dD4KCiAgICA8IS0tIE1haW4gVGl0bGUgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0LjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjUiPkJVS1RJIFBST0ZJVCBNRU1CRVIgIzQ8L3RleHQ+CgogICAgPCEtLSBEaW1lbnNpb25zIC0tPgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMSI+WyA0MDAgw5cgMjYwIFBYIF08L3RleHQ+CgogICAgPCEtLSBIZWxwZXIgVGV4dCAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPkdhbnRpIGRlbmdhbiBzY3JlZW5zaG90IHByb2ZpdCBtZW1iZXIgQW5kYTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Bukti Profit Raja Saham #4" width="400" height="260">
           </div>
           <div class="test-body">
             <div class="test-stars">★★★★★</div>
             <p class="test-quote">
-              "Awalnya ragu dengan istilah AI, tapi setelah coba paket 3 bulan saya lihat konsistensinya. <strong>Risk-reward ratio-nya dijaga ketat minimal 1:2</strong>, jadi kalaupun ada SL, modal tetap aman."
+              "Sangat cocok buat yang punya bisnis atau sibuk aktivitas harian. <strong>Tidak perlu mantau chart seharian</strong>, tinggal ikuti kalkulasi risk-reward stockpick yang presisi."
             </p>
             <div class="test-author">
-              <div class="test-avatar">MW</div>
               <div>
                 <div class="test-name">Maya Wijaya</div>
-                <div class="test-city">Ibu Rumah Tangga, Semarang</div>
+                <div class="test-city">Wiraswasta &amp; Trader, Semarang</div>
               </div>
             </div>
           </div>
@@ -3465,131 +3373,399 @@ footer p {
 
   <div class="glow-line"></div>
 
-  <!-- ===================== PRICING SECTION (2 KOTAK KANAN-KIRI) ===================== -->
+          <!-- ===================== VALUE STACK ===================== -->
+  <section id="value-stack" class="timeline-section">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow">VALUE STACK EKSKLUSIF</span>
+        <h2 class="sh">Semua Yang Anda Dapatkan di <span class="ac">Raja Saham AI</span></h2>
+        <p class="sh-sub">Nilai riil dari seluruh sistem, fitur, pendampingan, dan pengembangan yang Anda dapatkan.</p>
+      </div>
+
+      <div class="tl-timeline-wrap">
+        <!-- Continuous vertical center line -->
+        <div class="tl-center-line"></div>
+
+        <!-- ==================== ITEM 01 ==================== -->
+        <div class="tl-row tl-odd">
+          <!-- Center Node (Desktop) -->
+          <div class="tl-center-node">
+            <span>1</span>
+          </div>
+
+          <!-- Left Column: Content -->
+          <div class="tl-col tl-col-text">
+            <div class="tl-header-row">
+              <div class="tl-mobile-node">
+                <span>1</span>
+              </div>
+              <div class="tl-kicker">WEB APP &amp; DASHBOARD</div>
+            </div>
+            <h3 class="tl-title-main">Access Dashboard Web App Raja Saham AI</h3>
+            <h4 class="tl-title-sub" style="color: #38bdf8; font-weight: 700; margin-top: 4px;">Senilai Rp 1.500.000</h4>
+            <p class="tl-desc">
+              Screening ratusan saham BEI, stockpick terkurasi, dashboard, formula/strategy, dan update pick.
+            </p>
+            <div class="tl-pills">
+              <span class="tl-pill">Screening 900+ Saham BEI</span>
+              <span class="tl-pill">Stockpick Terkurasi</span>
+              <span class="tl-pill">Formula &amp; Strategy</span>
+              <span class="tl-pill">Live Update Pick</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Card -->
+          <div class="tl-col tl-col-visual">
+            <div class="tl-visual-wrap">
+              <div class="tl-visual-card tl-card-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3ZzXzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkX3ZzXzEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfdnNfMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZ192c18xKSIvPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZF92c18xKSIvPgoKICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNTk2IiBoZWlnaHQ9IjM3NiIgcng9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjI4KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjM2OCIgcng9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93X3ZzXzEpIi8+CgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCwgMTkwKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPHBhdGggZD0iTSAtMTAgLTI0IEwgMTAgLTI0IE0gLTEwIC0zMiBMIDEwIC0zMiBNIC00IC0zNiBMIC00IC0yMCBNIDQgLTM2IEwgNCAtMjAiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNCIgY3k9Ii0yNyIgcj0iMiIgZmlsbD0iIzM4YmRmOCIvPgoKICAgIDxyZWN0IHg9Ii04NSIgeT0iNCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjMDgxNDJiIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjAiIHk9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzhiZGY4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAuNSIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+VkFMVUUgU1RBQ0sgIzE8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNC41IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5BQ0NFU1MgREFTSEJPQVJEIFdFQiBBUFAgUkFKQSBTQUhBTSBBSTwvdGV4dD4KCiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIxIj5TZW5pbGFpIFJwIDEuNTAwLjAwMDwvdGV4dD4KCiAgICA8dGV4dCB4PSIwIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY0NzQ4YiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iNTAwIj5bIDYwMCDDlyAzODAgUFggXTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Value Stack 1: Web App &amp; Dashboard" class="tl-mockup-img" width="600" height="380">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ITEM 02 ==================== -->
+        <div class="tl-row tl-even">
+          <!-- Center Node (Desktop) -->
+          <div class="tl-center-node">
+            <span>2</span>
+          </div>
+
+          <!-- Left Column (Desktop): Visual Card -->
+          <div class="tl-col tl-col-visual">
+            <div class="tl-visual-wrap">
+              <div class="tl-visual-card tl-card-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3ZzXzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkX3ZzXzIiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfdnNfMiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZ192c18yKSIvPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZF92c18yKSIvPgoKICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNTk2IiBoZWlnaHQ9IjM3NiIgcng9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjI4KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjM2OCIgcng9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93X3ZzXzIpIi8+CgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCwgMTkwKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPHBhdGggZD0iTSAtMTAgLTI0IEwgMTAgLTI0IE0gLTEwIC0zMiBMIDEwIC0zMiBNIC00IC0zNiBMIC00IC0yMCBNIDQgLTM2IEwgNCAtMjAiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNCIgY3k9Ii0yNyIgcj0iMiIgZmlsbD0iIzM4YmRmOCIvPgoKICAgIDxyZWN0IHg9Ii04NSIgeT0iNCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjMDgxNDJiIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjAiIHk9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzhiZGY4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAuNSIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+VkFMVUUgU1RBQ0sgIzI8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNC41IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5EQUlMWSBJSFNHIE9VVExPT0sgU0VCRUxVTSBNQVJLRVQgQlVLQTwvdGV4dD4KCiAgICA8dGV4dCB4PSIwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzM4YmRmOCIgZm9udC1mYW1pbHk9IidKZXRCcmFpbnMgTW9ubycsICdGaXJhIENvZGUnLCBtb25vc3BhY2UsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIxIj5TZW5pbGFpIFJwIDkwMC4wMDA8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+WyA2MDAgw5cgMzgwIFBYIF08L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Value Stack 2: Daily IHSG Outlook" class="tl-mockup-img" width="600" height="380">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Desktop): Content -->
+          <div class="tl-col tl-col-text">
+            <div class="tl-header-row">
+              <div class="tl-mobile-node">
+                <span>2</span>
+              </div>
+              <div class="tl-kicker">DAILY PRE-MARKET BRIEFING</div>
+            </div>
+            <h3 class="tl-title-main">Daily IHSG Outlook Sebelum Market Buka</h3>
+            <h4 class="tl-title-sub" style="color: #38bdf8; font-weight: 700; margin-top: 4px;">Senilai Rp 900.000</h4>
+            <p class="tl-desc">
+              Update kondisi IHSG, sentimen market, sektor yang perlu diperhatikan, dan gambaran strategi sebelum jam perdagangan dimulai.
+            </p>
+            <div class="tl-pills">
+              <span class="tl-pill">Update Kondisi IHSG</span>
+              <span class="tl-pill">Sentimen Market Real-time</span>
+              <span class="tl-pill">Rotasi Sektor Potensial</span>
+              <span class="tl-pill">Pre-Market Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ITEM 03 ==================== -->
+        <div class="tl-row tl-odd">
+          <!-- Center Node (Desktop) -->
+          <div class="tl-center-node">
+            <span>3</span>
+          </div>
+
+          <!-- Left Column: Content -->
+          <div class="tl-col tl-col-text">
+            <div class="tl-header-row">
+              <div class="tl-mobile-node">
+                <span>3</span>
+              </div>
+              <div class="tl-kicker">EXECUTIVE SOP &amp; PLAYBOOK</div>
+            </div>
+            <h3 class="tl-title-main">Panduan Praktis Eksekusi Raja Saham AI</h3>
+            <h4 class="tl-title-sub" style="color: #38bdf8; font-weight: 700; margin-top: 4px;">Senilai Rp 199.000</h4>
+            <p class="tl-desc">
+              SOP sederhana mulai dari persiapan sebelum market buka, memilih pick, cek orderbook, entry, sampai evaluasi akhir hari.
+            </p>
+            <div class="tl-pills">
+              <span class="tl-pill">Persiapan Pre-Market</span>
+              <span class="tl-pill">Memilih Pick Terbaik</span>
+              <span class="tl-pill">Cek Orderbook &amp; Entry</span>
+              <span class="tl-pill">Evaluasi Akhir Hari</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Card -->
+          <div class="tl-col tl-col-visual">
+            <div class="tl-visual-wrap">
+              <div class="tl-visual-card tl-card-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3ZzXzMiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkX3ZzXzMiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfdnNfMyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZ192c18zKSIvPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZF92c18zKSIvPgoKICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNTk2IiBoZWlnaHQ9IjM3NiIgcng9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjI4KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjM2OCIgcng9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93X3ZzXzMpIi8+CgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCwgMTkwKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPHBhdGggZD0iTSAtMTAgLTI0IEwgMTAgLTI0IE0gLTEwIC0zMiBMIDEwIC0zMiBNIC00IC0zNiBMIC00IC0yMCBNIDQgLTM2IEwgNCAtMjAiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNCIgY3k9Ii0yNyIgcj0iMiIgZmlsbD0iIzM4YmRmOCIvPgoKICAgIDxyZWN0IHg9Ii04NSIgeT0iNCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjMDgxNDJiIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjAiIHk9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzhiZGY4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAuNSIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+VkFMVUUgU1RBQ0sgIzM8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNC41IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5QQU5EVUFOIFBSQUtUSVMgRUtTRUtVU0k8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzOGJkZjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMSI+U2VuaWxhaSBScCAxOTkuMDAwPC90ZXh0PgoKICAgIDx0ZXh0IHg9IjAiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI1MDAiPlsgNjAwIMOXIDM4MCBQWCBdPC90ZXh0PgogIDwvZz4KPC9zdmc+" alt="Value Stack 3: Panduan Praktis Eksekusi" class="tl-mockup-img" width="600" height="380">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ITEM 04 ==================== -->
+        <div class="tl-row tl-even">
+          <!-- Center Node (Desktop) -->
+          <div class="tl-center-node">
+            <span>4</span>
+          </div>
+
+          <!-- Left Column (Desktop): Visual Card -->
+          <div class="tl-col tl-col-visual">
+            <div class="tl-visual-wrap">
+              <div class="tl-visual-card tl-card-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzgwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnX3ZzXzQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDcwZDFlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGExNTJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDgxNCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkX3ZzXzQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0gMjQgMCBMIDAgMCAwIDI0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjA2KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imdsb3dfdnNfNCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMzhiZGY4IiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjg0YzciIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZ192c180KSIvPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZF92c180KSIvPgoKICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNTk2IiBoZWlnaHQ9IjM3NiIgcng9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjI4KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjM2OCIgcng9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+CgogIDxyZWN0IHg9IjIwIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMi41IiByeD0iMS4yNSIgZmlsbD0idXJsKCNnbG93X3ZzXzQpIi8+CgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCwgMTkwKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTI4IiByPSIyNCIgZmlsbD0iIzBiMWEzOCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPHBhdGggZD0iTSAtMTAgLTI0IEwgMTAgLTI0IE0gLTEwIC0zMiBMIDEwIC0zMiBNIC00IC0zNiBMIC00IC0yMCBNIDQgLTM2IEwgNCAtMjAiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNCIgY3k9Ii0yNyIgcj0iMiIgZmlsbD0iIzM4YmRmOCIvPgoKICAgIDxyZWN0IHg9Ii04NSIgeT0iNCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjMDgxNDJiIiBzdHJva2U9InJnYmEoNTYsIDE4OSwgMjQ4LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjAiIHk9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzhiZGY4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAuNSIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+VkFMVUUgU1RBQ0sgIzQ8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNC41IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5VUERBVEUgJmFtcDsgSU1QUk9WRU1FTlQ8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzOGJkZjgiIGZvbnQtZmFtaWx5PSInSmV0QnJhaW5zIE1vbm8nLCAnRmlyYSBDb2RlJywgbW9ub3NwYWNlLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMSI+U2VuaWxhaSBScCAxLjMwMC4wMDA8L3RleHQ+CgogICAgPHRleHQgeD0iMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NDc0OGIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjUwMCI+WyA2MDAgw5cgMzgwIFBYIF08L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Value Stack 4: Update &amp; Improvement" class="tl-mockup-img" width="600" height="380">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Desktop): Content -->
+          <div class="tl-col tl-col-text">
+            <div class="tl-header-row">
+              <div class="tl-mobile-node">
+                <span>4</span>
+              </div>
+              <div class="tl-kicker">CONTINUOUS IMPROVEMENT</div>
+            </div>
+            <h3 class="tl-title-main">Update &amp; Improvement Sistem Raja Saham AI</h3>
+            <h4 class="tl-title-sub" style="color: #38bdf8; font-weight: 700; margin-top: 4px;">Senilai Rp 1.300.000</h4>
+            <p class="tl-desc">
+              Akses terhadap pengembangan formula, fitur, dashboard, dan improvement selama layanan tetap berjalan.
+            </p>
+            <div class="tl-pills">
+              <span class="tl-pill">Pengembangan Formula</span>
+              <span class="tl-pill">Rilis Fitur Baru</span>
+              <span class="tl-pill">Optimasi Dashboard</span>
+              <span class="tl-pill">Continuous Improvement</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Total Value Banner Box -->
+      <div class="value-total-box" style="margin-top: 48px;">
+        <div class="vt-label">TOTAL VALUE YANG ANDA DAPATKAN</div>
+        <div class="vt-real-deal" style="font-size: 36px; margin: 12px 0;"><span class="text-gradient">Rp 3.899.000</span></div>
+        <p class="vt-sub">Dapatkan seluruh akses sistem dan manfaat di atas sekarang juga saat Anda bergabung dengan Raja Saham AI.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="glow-line"></div>
+
+  <!-- ===================== ANTI-GORENGAN FILTER SPECS (HIDDEN) ===================== -->
+  <section id="anti-gorengan" class="sec-alt" style="display: none;">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow">RISK MANAGEMENT FIRST</span>
+        <h2 class="sh">Standar Ketat Kami: <span class="ac">Bebas Saham Gorengan</span></h2>
+        <p class="sh-sub">Kami tidak pernah merekomendasikan saham tidur atau saham manipulatif. Inilah 4 kriteria eliminasi permanen kami.</p>
+      </div>
+
+      <div class="anti-grid">
+        <div class="anti-card">
+          <div class="anti-card-header">
+            <div class="anti-card-icon">1</div>
+            <div class="anti-card-title">Turnover Transaksi Min. Rp 5 Miliar / Hari</div>
+          </div>
+          <p class="anti-rule">
+            Hanya emiten dengan likuiditas riil tinggi yang masuk radar. Anda bisa masuk dan keluar posisi kapan saja <strong>tanpa takut nyangkut karena tidak ada pembeli</strong>.
+          </p>
+        </div>
+
+        <div class="anti-card">
+          <div class="anti-card-header">
+            <div class="anti-card-icon">2</div>
+            <div class="anti-card-title">Eliminasi Saham Gocap &amp; Zombie</div>
+          </div>
+          <p class="anti-rule">
+            Sistem secara otomatis memblokir saham yang mendekati batas Rp 50 atau saham tidur tanpa volatilitas sehat. <strong>Zero risk terjebak di saham zombie</strong>.
+          </p>
+        </div>
+
+        <div class="anti-card">
+          <div class="anti-card-header">
+            <div class="anti-card-icon">3</div>
+            <div class="anti-card-title">Deteksi Spike Volume Palsu</div>
+          </div>
+          <p class="anti-rule">
+            AI membedakan antara akumulasi institusional asli dengan perputaran semu bandar (wash trading). <strong>Sinyal palsu langsung dibatalkan sebelum terbit</strong>.
+          </p>
+        </div>
+
+        <div class="anti-card">
+          <div class="anti-card-header">
+            <div class="anti-card-icon">4</div>
+            <div class="anti-card-title">Filter Papan Pemantauan Khusus (FCA)</div>
+          </div>
+          <p class="anti-rule">
+            Saham dengan notasi khusus BEI dan skema periodic call auction otomatis di-exclude demi <strong>keamanan maksimal modal portofolio Anda</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BONUS DAFTAR HARI INI (HIDDEN) ===================== -->
+  <section id="bonus" class="bonus-sec" style="display: none;">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow">EXCLUSIVE PERKS</span>
+        <h2 class="sh">🎁 Bonus Khusus <span class="ac">Pendaftaran Hari Ini</span></h2>
+        <p class="sh-sub">Dapatkan seluruh paket bonus eksklusif ini secara 100% gratis saat mengaktifkan akun Anda hari ini.</p>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <span class="bonus-tag">BONUS 1</span>
+          <div class="bonus-icon">📘</div>
+          <h4 class="bonus-title">AI Quantitative Trading Playbook</h4>
+          <p class="bonus-desc">Panduan komprehensif mengelola money management, risk per trade 1-2%, dan psikologi eksekusi sinyal kuantitatif.</p>
+          <span class="bonus-val">NILAI RP 750.000 (GRATIS)</span>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-tag">BONUS 2</span>
+          <div class="bonus-icon">💬</div>
+          <h4 class="bonus-title">Akses Komunitas Discord VIP</h4>
+          <p class="bonus-desc">Saluran diskusi harian bersama ratusan trader aktif, update pre-market langsung, dan sesi tanya jawab teknikal.</p>
+          <span class="bonus-val">NILAI RP 1.500.000 (GRATIS)</span>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-tag">BONUS 3</span>
+          <div class="bonus-icon">📈</div>
+          <h4 class="bonus-title">Weekly Macro Watchlist &amp; Mentoring</h4>
+          <p class="bonus-desc">Ulasan mingguan arah IHSG, sektor potensial, dan persiapan watchlist saham sebelum pembukaan bursa hari Senin.</p>
+          <span class="bonus-val">NILAI RP 1.200.000 (GRATIS)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="glow-line"></div>
+
+  <!-- ===================== PRICING SECTION (SINGLE HERO CARD LIFETIME) ===================== -->
   <section id="pricing" class="pricing-section">
     <div class="wrap">
       <div class="sec-center">
         <span class="eyebrow">PILIHAN INVESTASI</span>
-        <h2 class="sh">Mulai Langkah Anda Menjadi <span class="ac">Trader Kuantitatif</span></h2>
-        <p class="sh-sub">Pilih periode langganan Anda. Paket Kuartal 3 Bulan adalah pilihan utama paling diminati trader serius.</p>
+        <h2 class="sh">Bayar Sekali Saja, Akses Selamanya. <span class="ac">Bukan Langganan Bulanan.</span></h2>
+        <p class="sh-sub" style="max-width: 780px; margin: 0 auto;">
+          Kalau Anda harus melakukan seluruh proses screening dan analisa sendiri setiap hari... berapa jam waktu yang akan habis dalam satu tahun?
+          Raja Saham AI dibuat untuk membantu memangkas proses tersebut. Dan sekarang Anda tidak perlu membayar subscription bulanan untuk menggunakannya.
+        </p>
       </div>
 
-      <!-- 2 Cards Side-by-Side (Desktop / Tablet) -->
-      <div class="pricing-grid-2col">
-        
-        <!-- CARD 1: 1 BULAN (Kiri) -->
-        <div class="pricing-card">
-          <div class="price-tier-name">Paket 1 Bulan</div>
-          <div class="price-tier-desc">Cocok untuk uji coba dan membuktikan akurasi sistem.</div>
-
-          <div class="price-amount-wrap">
-            <span class="price-slash">Rp 7.500.000</span>
-            <div class="price-main">Rp 299.000</div>
-            <div class="price-daily">= Rp 9.966 / hari (Akses 30 Hari)</div>
-          </div>
-
-          <div class="price-divider"></div>
-
-          <ul class="pricing-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>3-5 sinyal/hari (Pre-Market, Midday, Post-Market)</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Entry, TP, SL exact dalam Rupiah</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Rationale & alasan teknikal setiap pick</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Akses Web Dashboard AI</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Auto-audit + notifikasi WIN otomatis</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Akses komunitas Discord VIP</span>
-            </li>
-          </ul>
-
-          <a href="https://raja-saham.myr.id/m/1-bulan-59481" class="btn btn-outline btn-full">
-            <span>Mulai 30 Hari Sekarang →</span>
-          </a>
-          <p style="font-size:11px; color:var(--t4); text-align:center; margin-top:12px;">🔒 Pembayaran aman & aktivasi otomatis</p>
-        </div>
-
-        <!-- CARD 2: KUARTAL 3 BULAN (Kanan — FEATURED HERO) -->
-        <div class="pricing-card featured">
-          <div class="pricing-badge-top">🔥 PALING HEMAT & POPULER</div>
+      <!-- Single Centered Pricing Card (Max Width 680px) -->
+            <!-- Side-by-Side Pricing Cards Comparison (Dark vs Light) -->
+            <!-- 3-Way Side-by-Side Pricing Cards Comparison (Dark Cyan vs Dark Neon Gold vs Light) -->
+            <!-- 3-Way Side-by-Side Pricing Cards Comparison (Dark Cyan Standard vs Dark Cyan Ultra Glow vs Light) -->
+            <!-- 3-Way Side-by-Side Pricing Cards Comparison (With 3-Phase Tier Boxes) -->
+            <!-- Single Centered Light Mode Pricing Card (Max Width 680px) -->
+      <div class="pricing-single-wrap" style="max-width: 680px; margin: 50px auto 0;">
+        <div class="pricing-card featured light-ver" style="position: relative; padding: 44px 36px; border-radius: 20px; background: #ffffff; border: 2.5px solid #38bdf8; box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.28), 0 0 0 1px rgba(226, 232, 240, 0.9);">
           
-          <div class="price-tier-name">Paket Kuartal (3 Bulan)</div>
-          <div class="price-tier-desc">Pilihan utama trader yang ingin melihat performa portofolio jangka menengah secara konsisten.</div>
-
-          <div class="price-amount-wrap">
-            <span class="price-slash">Rp 22.500.000</span>
-            <div class="price-main text-gradient">Rp 850.000</div>
-            <div class="price-daily">= Rp 9.444 / hari (Hemat Rp 47.000 & bonus lengkap)</div>
+          <!-- Scarcity Badge Top -->
+          <div class="pricing-badge-top" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-size: 11.5px; font-weight: 800; letter-spacing: 1px; white-space: nowrap; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);">
+            🔥 SESI 1 MAKSIMAL 100 MEMBER
+          </div>
+          
+          <div class="price-tier-name" style="font-size: 24px; text-align: center; margin-top: 10px; color: #0f172a; font-weight: 800; letter-spacing: -0.3px;">
+            RAJA SAHAM AI — LIFETIME ACCESS
+          </div>
+          
+          <!-- Scarcity Warning Box -->
+          <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 12px; padding: 14px 18px; margin: 20px 0 26px; text-align: center; font-size: 13.5px; color: #991b1b; line-height: 1.5;">
+            🔥 <strong>Harga Rp 349rb Lifetime hanya untuk 100 member pertama.</strong><br>Lebih dari itu, harga lifetime naik dan promo ini tidak berlaku lagi.
           </div>
 
-          <div class="price-divider"></div>
-
-          <ul class="pricing-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Semua fitur Paket Bulanan</span>
-            </li>
-            <li class="highlight-feat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>FREE E-Book: AI Quantitative Trading Playbook</span>
-            </li>
-            <li class="highlight-feat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>FREE Akses Weekly Macro Market Outlook</span>
-            </li>
-            <li class="highlight-feat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Bonus Lain-nya</span>
-            </li>
-          </ul>
-
-          <a href="https://raja-saham.myr.id/m/3-bulan-74724" class="btn btn-cyan btn-full pulse-button">
-            <span>Ambil Paket Kuartal 3 Bulan Sekarang →</span>
-          </a>
-          <p style="font-size:11px; color:var(--cyan-b); text-align:center; margin-top:12px; font-weight:600;">⚡ Promo Terbatas • Slot Discord VIP Dibatasi</p>
-        </div>
-
-      </div>
-
-      <!-- Guarantees Box -->
-      <div class="guarantee-box">
-        <div class="guarantee-grid">
-          <div class="guarantee-item">
-            <div class="guarantee-icon">🛡️</div>
-            <div>
-              <div class="guarantee-title">Garansi Kualitas Sinyal</div>
-              <p class="guarantee-desc">
-                Jika kami terbukti memberikan sinyal asal-asalan tanpa analisa kuantitatif dan filter anti-gorengan, kami berikan <strong>perpanjangan masa aktif 1 bulan penuh secara gratis</strong>.
-              </p>
+          <!-- Price Amount Wrap -->
+          <div class="price-amount-wrap" style="text-align: center;">
+            <div class="price-main" style="font-size: 46px; font-weight: 900; color: #0284c7; letter-spacing: -1px;">Rp349.000</div>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 10px;">
+              <span style="font-size: 11.5px; padding: 4px 12px; background: #e0f2fe; color: #0369a1; border-radius: 20px; font-weight: 800;">SEKALI BAYAR</span>
+              <span style="font-size: 11.5px; padding: 4px 12px; background: #dcfce7; color: #15803d; border-radius: 20px; font-weight: 800;">AKSES LIFETIME</span>
             </div>
           </div>
 
-          <div class="guarantee-item">
-            <div class="guarantee-icon">🔓</div>
-            <div>
-              <div class="guarantee-title">Tanpa Kontrak & Tanpa Auto-Debet</div>
-              <p class="guarantee-desc">
-                Anda membayar per periode tanpa ikatan kontrak. <strong>Tidak ada pemotongan saldo otomatis tanpa persetujuan Anda</strong>. Jika tidak ingin lanjut, cukup tidak perpanjang.
-              </p>
+          <div class="price-divider" style="margin: 26px 0; border-top: 1.5px dashed #e2e8f0;"></div>
+
+          <!-- 3 PHASE TIER BOX LIGHT -->
+          <div class="phase-tiers-wrap" style="margin: 24px 0;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
+              <!-- FASE 1 (ACTIVE LIGHT) -->
+              <div style="background: #e0f2fe; border: 2.5px solid #0284c7; border-radius: 14px; padding: 16px 8px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);">
+                <div style="font-size: 11.5px; font-weight: 900; color: #0369a1; letter-spacing: 0.5px; margin-bottom: 4px;">FASE 1</div>
+                <div style="font-size: 21px; font-weight: 900; color: #0f172a;">349rb</div>
+              </div>
+              <!-- FASE 2 -->
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px 8px; opacity: 0.7;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #64748b; letter-spacing: 0.5px; margin-bottom: 4px;">FASE 2</div>
+                <div style="font-size: 19px; font-weight: 800; color: #475569;">585rb</div>
+              </div>
+              <!-- FASE 3 -->
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px 8px; opacity: 0.7;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #64748b; letter-spacing: 0.5px; margin-bottom: 4px;">FASE 3</div>
+                <div style="font-size: 19px; font-weight: 800; color: #475569;">900rb</div>
+              </div>
             </div>
+            <p style="font-size: 13px; color: #475569; text-align: center; margin-top: 18px; line-height: 1.5;">
+              Saat ini di <strong style="color: #0284c7;">Fase 1 (Sisa kuota terbatas)</strong> — setelah 100 member pertama, harga naik ke <strong style="color: #dc2626;">Fase 2 (585rb)</strong>.
+            </p>
+          </div>
+
+          <div class="btn-row" style="margin-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+            <a href="https://raja-saham.myr.id/m/3-bulan-74724" class="btn btn-cyan btn-lg pulse-button">
+              <span>DAPATKAN LIFETIME ACCESS — Rp349.000</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink: 0;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <p style="font-size: 12px; color: #475569; text-align: center; margin-top: 14px; font-weight: 700;">🔒 Pembayaran Sekali Bayar • Kuota Slot Sesi 1 Sangat Terbatas (100 Member)</p>
           </div>
         </div>
       </div>
 
+    </div>
+      <!-- Guarantees Box (2 Jaminan untuk Ketenangan Kamu — Landscape Compact) -->
+      <div class="guarantee-box" style="max-width: 900px; margin: 36px auto 0; background: rgba(11, 26, 56, 0.4); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 16px; padding: 26px 28px; text-align: center;">
+        
+        <!-- Header Circle Icon & Titles Row -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px;">
+          <h3 style="font-size: 20px; font-weight: 800; color: #ffffff; margin: 0;">2 Jaminan untuk Ketenangan Kamu</h3>
+        </div>
+        <p style="font-size: 13.5px; color: #94a3b8; margin: 0 0 18px 0;">Kami taruh reputasi di angka — bukan sekedar janji manis.</p>
+
+        <!-- Guarantee Cards Grid (2-Column Side-by-Side Landscape) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; text-align: left;">
+          
+          <!-- Card 1 -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 14.5px; font-weight: 700; color: #ffffff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span>✅</span> Bayar Sekali, Tidak Ada Biaya Tersembunyi
+            </div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55; margin: 0;">
+              <strong style="color: #22c55e;">Rp 349rb sekali bayar</strong> — tidak ada biaya bulanan, tidak ada auto-charge, tidak ada perpanjangan.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 14.5px; font-weight: 700; color: #ffffff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span>✅</span> Update Sistem &amp; Algoritma Gratis Selamanya
+            </div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55; margin: 0;">
+              Setiap peningkatan AI, indikator baru, atau fitur tambahan <strong style="color: #22c55e;">otomatis kamu dapatkan tanpa biaya tambahan.</strong>
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Footer Disclaimer Text -->
+        <p style="font-size: 12px; font-style: italic; color: #64748b; margin-top: 16px; line-height: 1.5; margin-bottom: 0;">
+          Yang tidak kami tawarkan: refund uang tunai. Kami tidak mau sinyal AI di-screenshot lalu di-refund. Adil untuk kedua belah pihak.
+        </p>
+
+      </div>
     </div>
   </section>
 
@@ -3605,53 +3781,102 @@ footer p {
       </div>
 
       <div class="faq-wrap">
+        <!-- FAQ 1 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Apakah Raja Saham AI cocok untuk pemula yang belum paham teknikal?</span>
+            <span>Apakah ini robot trading otomatis?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Sangat cocok. Anda tidak perlu pusing menarik garis tren atau menghitung indikator rumit. Setiap sinyal sudah menyajikan instruksi yang sangat jelas: nama saham, harga beli (Entry), target take profit, dan batas cutloss dalam Rupiah.</p>
+            <p>Tidak. Raja Saham AI hanya kirim sinyal (BUY dengan Entry, TP, SL). Kamu tetap eksekusi sendiri di broker pilihanmu. Kami TIDAK punya akses ke akun broker kamu.</p>
           </div>
         </div>
 
+        <!-- FAQ 2 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Apakah sinyal ini bisa digunakan di semua aplikasi sekuritas?</span>
+            <span>Broker apa yang kompatibel?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Ya, 100% kompatibel. Sinyal yang diberikan berupa data harga beli dan jual saham resmi yang terdaftar di Bursa Efek Indonesia (BEI/IDX). Anda bebas mengeksekusinya di aplikasi sekuritas mana pun yang biasa Anda gunakan (Stockbit, IPOT, Mandiri Sekuritas, Mirae Asset, BCA Sekuritas, dll).</p>
+            <p>Semua broker saham Indonesia — Stockbit, IPOT, Ajaib, Bibit Saham, Mandiri Sekuritas, BCA Sekuritas, Mirae Asset, dan lainnya. Karena kami cuma kirim sinyal, kamu tinggal eksekusi di broker manapun.</p>
           </div>
         </div>
 
+        <!-- FAQ 3 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Berapa sinyal yang saya dapatkan setiap harinya?</span>
+            <span>Berapa sinyal per hari?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Secara rata-rata 3 hingga 5 sinyal berkualitas tinggi per hari. Kami mengutamakan kualitas setup dibanding kuantitas. Jika kondisi IHSG sedang sangat berisiko atau ekstrem, algoritma sengaja membatasi sinyal untuk melindungi modal Anda.</p>
+            <p>Rata-rata 3-5 sinyal per hari, dikirim di 3 sesi: 08:30 (Pre-Market), 13:00 (Midday), dan 16:30 (Post-Market). Jumlah bervariasi tergantung kondisi market — kami prioritaskan kualitas over kuantitas.</p>
           </div>
         </div>
 
+        <!-- FAQ 4 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Bagaimana cara kerja Auto-Audit Bot 10-Menit?</span>
+            <span>Modal minimum berapa untuk mulai?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Bot kami terus memantau pergerakan harga saham di pasar bursa setiap 10 menit setelah sinyal diterbitkan. Begitu harga menyentuh Target Profit (TP1/TP2) atau batas Stop Loss, bot akan langsung mengirimkan notifikasi audit status di Discord dan Dashboard secara transparan.</p>
+            <p>Tergantung broker dan saham. Secara umum, mulai dari Rp 100.000 sudah bisa. Kami rekomendasikan minimum Rp 5-10 juta untuk diversifikasi ke beberapa pick. Prinsip: jangan pakai uang yang kamu butuhkan dalam waktu dekat.</p>
           </div>
         </div>
 
+        <!-- FAQ 5 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Apakah saya harus terus menatap layar monitor seharian?</span>
+            <span>Apakah pasti profit?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Tidak perlu. Sinyal pre-market kami kirimkan sebelum bursa buka (sekitar pukul 08:45 WIB). Anda cukup meluangkan 3-5 menit untuk memasang order antrean beli (GTC/Automatic Order) di sekuritas Anda, lalu biarkan sistem bekerja.</p>
+            <p>Tidak ada yang bisa jamin profit 100% di pasar saham — kami tampilkan LOSS juga di track record. Tapi sistem kami punya SL exact di setiap sinyal untuk lindungi modal. Win rate historis 86.4% dengan cumulative +32%. Performa masa lalu bukan jaminan masa depan.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Apa itu anti-gorengan filter?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Filter otomatis untuk buang saham pump-and-dump. Kriteria: min harga Rp100, min volume 1jt lembar/hari, skip saham yang sudah naik &gt;7% dalam 3 candle terakhir. Plus IHSG regime filter (bullish/cautious/bearish). Ini lindungi kamu dari saham manipulatif.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Ada jaminan kalau tidak sesuai ekspektasi?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Ada 2 jaminan:<br><strong>(1) Bayar Sekali, Tidak Ada Biaya Tersembunyi</strong> — Rp 349rb sekali bayar, tidak ada tagihan bulanan atau auto-charge susulan.<br><strong>(2) Update Gratis Selamanya</strong> — setiap peningkatan sistem AI otomatis kamu dapatkan tanpa biaya tambahan. Refund cash tidak tersedia karena sinyal AI bersifat digital.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Setelah bayar gimana aksesnya?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Setelah pembayaran dikonfirmasi (proses &lt; 5 menit), kamu langsung dapat: (1) link dashboard AI, (2) invite ke grup Telegram VIP. Sinyal mulai dikirim di sesi berikutnya.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Kenapa dibatasi 100 member? Apa setelah itu tidak bisa daftar lagi?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Harga Rp 349rb Lifetime ini khusus Sesi 1 — maksimal 100 member pertama, supaya kualitas layanan &amp; kapasitas grup Telegram tetap terjaga. Setelah kuota 100 terpenuhi, pendaftaran masih bisa, tapi harga lifetime akan naik dan promo ini tidak berlaku lagi.</p>
           </div>
         </div>
       </div>
@@ -3664,26 +3889,28 @@ footer p {
   <section class="final">
     <div class="final-inner">
       <h2 class="sh" style="text-align:center;">
-        Jangan Biarkan Trading Anda<br><span class="ac">Tanpa Arah Lebih Lama.</span>
+        Market Buka. AI yang Kerja.<br><span class="ac">Kamu Tinggal Eksekusi.</span>
       </h2>
       <p class="sh-sub" style="text-align:center; margin:0 auto 36px;">
-        Satu keputusan kuartal hari ini bisa membuka peluang profitabilitas dan konsistensi baru untuk portofolio Anda.
+        <strong>800+ saham BEI</strong> discan otomatis. Sinyal siap dengan <strong>Entry/TP/SL exact</strong> langsung di dashboard + Telegram kamu. <strong style="color: #38bdf8;">Bayar sekali Rp 349rb, akses selamanya</strong> — bukan langganan. Harga ini hanya untuk <strong style="color: #fca5a5;">100 member pertama</strong>, setelah itu naik.
       </p>
 
-      <div class="btn-row" style="justify-content:center;">
+            <div class="btn-row" style="justify-content:center; margin-bottom: 12px;">
         <a href="https://raja-saham.myr.id/m/3-bulan-74724" class="btn btn-cyan btn-lg pulse-button">
-          Ambil Paket Kuartal — Rp 850.000
+          DAPATKAN LIFETIME ACCESS — Rp349.000
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <p class="final-meta">
-        ⚡ 3–5 Sinyal Harian BEI
-        <span class="dot">·</span>
-        Auto-Audit 10-Menit
-        <span class="dot">·</span>
-        Komunitas Discord VIP
-      </p>
+            <!-- Subnote di Bawah Button CTA -->
+      <div class="cta-subnote-box">
+        <div class="cta-subnote-text">
+          Sekali bayar <span style="color: #38bdf8; margin: 0 3px;">•</span> Tidak ada subscription bulanan <span style="color: #38bdf8; margin: 0 3px;">•</span> Tidak ada auto-debet
+        </div>
+        <div class="cta-subnote-pill">
+          <span><strong style="color: #38bdf8; font-weight: 800;">Kurang dari Rp1.000 per Hari</strong> Jika Dipakai Selama 1 Tahun</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -3696,11 +3923,11 @@ footer p {
   <!-- ===================== STICKY BAR (Daftar Sekarang seperti di Webinar — bawah) ===================== -->
   <div class="sticky-bar" id="stickyBar">
     <div class="sb-price">
-      <small>Rp 7.500.000</small>
-      Rp 299.000 <span>/ Bulan</span>
+      <small>Sekali Bayar</small>
+      Rp 349.000 <span>/ Lifetime</span>
     </div>
-    <a href="https://raja-saham.myr.id/m/1-bulan-59481" class="btn btn-cyan">
-      Daftar Sekarang
+    <a href="https://raja-saham.myr.id/m/3-bulan-74724" class="btn btn-cyan">
+      Dapatkan Lifetime Access
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -3759,12 +3986,12 @@ footer p {
 
     // 3. Floating Sales Notification Popup
     const salesData = [
-      { name: 'Pak Budi Prasetyo', city: 'Surabaya', plan: 'Paket Kuartal (3 Bulan)', time: '1 menit lalu' },
-      { name: 'Dr. Kevin Wijaya', city: 'Jakarta Barat', plan: 'Paket Kuartal (3 Bulan)', time: '3 menit lalu' },
-      { name: 'Ibu Maya Anggraini', city: 'Semarang', plan: 'Paket 1 Bulan', time: '5 menit lalu' },
-      { name: 'Rian Pratama', city: 'Tangerang', plan: 'Paket Kuartal (3 Bulan)', time: '2 menit lalu' },
-      { name: 'David Santoso', city: 'Medan', plan: 'Paket Kuartal (3 Bulan)', time: '6 menit lalu' },
-      { name: 'Hendra Setiawan', city: 'Bandung', plan: 'Paket 1 Bulan', time: '4 menit lalu' }
+      { name: 'Pak Budi Prasetyo', city: 'Surabaya', plan: 'Lifetime Access', time: '1 menit lalu' },
+      { name: 'Dr. Kevin Wijaya', city: 'Jakarta Barat', plan: 'Lifetime Access', time: '3 menit lalu' },
+      { name: 'Ibu Maya Anggraini', city: 'Semarang', plan: 'Lifetime Access', time: '5 menit lalu' },
+      { name: 'Rian Pratama', city: 'Tangerang', plan: 'Lifetime Access', time: '2 menit lalu' },
+      { name: 'David Santoso', city: 'Medan', plan: 'Lifetime Access', time: '6 menit lalu' },
+      { name: 'Hendra Setiawan', city: 'Bandung', plan: 'Lifetime Access', time: '4 menit lalu' }
     ];
 
     let notifIndex = 0;
