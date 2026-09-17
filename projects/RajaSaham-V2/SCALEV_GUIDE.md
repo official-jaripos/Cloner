@@ -8,8 +8,7 @@ Landing page ini dirancang **100% standalone (single file HTML + CSS + JS inline
 - **Nama Projek**: RajaSaham-V2
 - **Direktori**: `projects/RajaSaham-V2/`
 - **File Utama**: `index.html`
-- **Link Checkout 1 Bulan**: `https://raja-saham.myr.id/m/1-bulan-59481`
-- **Link Checkout 3 Bulan (Kuartal - Hero)**: `https://raja-saham.myr.id/m/3-bulan-74724`
+- **Link Checkout Lifetime**: `https://raja-saham.myr.id/membership/life-time-raja-saham`
 
 ---
 
@@ -43,8 +42,7 @@ Landing page ini dirancang **100% standalone (single file HTML + CSS + JS inline
 ## Titik Kustomisasi Penting
 1. **Mengubah Link Checkout**:
    Gunakan fitur pencarian (**Ctrl + F**) di dalam file `index.html`:
-   - Cari: `https://raja-saham.myr.id/m/1-bulan-59481` (Ganti dengan link checkout 1 bulan Anda)
-   - Cari: `https://raja-saham.myr.id/m/3-bulan-74724` (Ganti dengan link checkout 3 bulan kuartal Anda)
+   - Cari: `https://raja-saham.myr.id/membership/life-time-raja-saham`
 2. **Durasi Countdown Timer**:
    Di bagian bawah script, cari fungsi `startCountdown()` untuk mengubah durasi jam, menit, dan detik.
 3. **Data Notifikasi Pembeli**:
